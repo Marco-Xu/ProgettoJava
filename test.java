@@ -1,5 +1,5 @@
-package Dropbox;
 
+import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,15 +26,20 @@ public class test {
 		String key = "ffb7e697fda1e224fa8c50d16e4b3bca";
 		String url = url_void + city + "&appid=" + key;
 		*/
-		String url = "https://api.openweathermap.org/data/2.5/weather?q=Rimini&appid=ffb7e697fda1e224fa8c50d16e4b3bca";
+		Scanner input = new Scanner(System.in);
+		System.out.println("Seleziona la città:");
+		
+		//String url = "https://api.openweathermap.org/data/2.5/weather?q=Rimini&appid=ffb7e697fda1e224fa8c50d16e4b3bca";
 		
 		try {
-
+			String city = input.nextLine();
+			String url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=ffb7e697fda1e224fa8c50d16e4b3bca";
+			
 			HttpURLConnection openConnection = (HttpURLConnection) new URL(url).openConnection();
-			openConnection.setRequestMethod("POST");
+			openConnection.setRequestMethod("GET");
 			
 			openConnection.setRequestProperty("appid","ffb7e697fda1e224fa8c50d16e4b3bca");
-			openConnection.setRequestProperty("q","Rimini");
+			openConnection.setRequestProperty("q",city);
 			
 			openConnection.setRequestProperty("Content-Type", "application/json");
 			openConnection.setRequestProperty("Accept", "application/json");
@@ -73,7 +78,8 @@ public class test {
 		//	e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("Errore...");
 		}
 	}
-
 }
+
