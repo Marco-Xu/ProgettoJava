@@ -7,11 +7,11 @@ public class CityNotFoundException extends Exception{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	CityNotFoundException() {
+	public CityNotFoundException() {
 		super();
 	}
 	
-	CityNotFoundException(String msg) {
+	public CityNotFoundException(String msg) {
 		super(msg);
 	}
 }

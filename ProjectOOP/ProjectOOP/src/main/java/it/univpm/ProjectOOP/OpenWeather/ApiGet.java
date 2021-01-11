@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 
 public class ApiGet {
-	public JSONObject Read(String city) {
+	public static JSONObject Read(String city) {
 		
 		String url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=ffb7e697fda1e224fa8c50d16e4b3bca";
 		JSONObject obj = new JSONObject();

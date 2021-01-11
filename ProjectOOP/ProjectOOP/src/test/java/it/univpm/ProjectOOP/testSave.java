@@ -5,19 +5,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import it.univpm.ProjectOOP.Data.DataWeather;
 import it.univpm.ProjectOOP.Data.MyData;
+import it.univpm.ProjectOOP.Data.saveHistory;
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 import it.univpm.ProjectOOP.OpenWeather.ApiGet;
 
 @SpringBootTest
-class ProjectOopApplicationTests {
-
+public class testSave {
 	@Test
 	void contextLoads() throws CityNotFoundException {
-		ApiGet api = new ApiGet();
-    	DataWeather dw = new DataWeather();
-    	MyData a = new MyData();
-    	a = dw.Parse(api.Read("Ancona"), "Ancona");
-    	System.out.println(a);
+		saveHistory sv = new saveHistory();
+		sv.save("Ancona");
 	}
-
 }

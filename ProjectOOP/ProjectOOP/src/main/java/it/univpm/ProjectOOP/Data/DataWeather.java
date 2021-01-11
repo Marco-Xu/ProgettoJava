@@ -3,9 +3,11 @@ package it.univpm.ProjectOOP.Data;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
+import it.univpm.ProjectOOP.OpenWeather.ApiGet;
 
 public class DataWeather {
-	public MyData Parse(JSONObject object, String luogo) {
+	public static MyData Parse(String luogo) throws CityNotFoundException{
 		
 		String city = "";
 		String description = "";
@@ -14,6 +16,11 @@ public class DataWeather {
 		double minimalTemp = 0;
 		double feelsLikeTemp = 0;
 		int date = 0;
+		
+		JSONObject object = ApiGet.Read(city);
+		
+		if(!checkCity(object))
+			throw new CityNotFoundException("Città non trovata");
 		
 		try {
 			city = luogo;
@@ -31,5 +38,19 @@ public class DataWeather {
 			e.printStackTrace();
 		}
 		return new MyData(city, description, normalTemp, maximalTemp, minimalTemp, feelsLikeTemp, date);
+	}
+	
+	public static boolean checkCity(JSONObject obj) {
+		String mess = "";
+		try {
+			mess = obj.getString("message");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(mess.equals("city not found"))
+			return false;
+		return true;
 	}
 }
