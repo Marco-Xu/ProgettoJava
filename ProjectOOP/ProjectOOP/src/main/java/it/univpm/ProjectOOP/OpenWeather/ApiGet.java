@@ -22,8 +22,6 @@ public class ApiGet {
 			HttpURLConnection openConnection = (HttpURLConnection) new URL(url).openConnection();
 			openConnection.setRequestMethod("POST");
 			
-			openConnection.setRequestProperty("Content-Type", "application/json");
-			openConnection.setRequestProperty("Accept", "application/json");
 			openConnection.setDoOutput(true);
 			
 			InputStream in = openConnection.getInputStream();
