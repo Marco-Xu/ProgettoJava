@@ -7,9 +7,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.ParseException;
+import org.json.JSONObject;
+
+
 
 public class ApiGet {
 	public JSONObject Read(String city) {
@@ -39,9 +39,9 @@ public class ApiGet {
 				in.close();
 			}
 			
-			obj = (JSONObject) JSONValue.parseWithException(data);
+			obj = new JSONObject(data);
 			
-		} catch (IOException | ParseException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
