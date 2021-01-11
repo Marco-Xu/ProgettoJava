@@ -7,19 +7,29 @@ import org.json.JSONObject;
 public class DataWeather {
 	public MyData Parse(JSONObject object, String luogo) {
 		
-		String city = luogo;
-		
-		JSONArray arr = object.getJSONArray("weather");
+		String city = "";
 		String description = "";
-		for(int i = 0; i < arr.length(); i++) 
-			description = arr.getJSONObject(i).getString("description");
+		double normalTemp = 0;
+		double maximalTemp = 0;
+		double minimalTemp = 0;
+		double feelsLikeTemp = 0;
+		int date = 0;
 		
-		double normalTemp = object.getJSONObject("main").getDouble("temp");
-		double maximalTemp = object.getJSONObject("main").getDouble("temp_max");
-		double minimalTemp = object.getJSONObject("main").getDouble("temp_min");
-		double feelsLikeTemp = object.getJSONObject("main").getDouble("feels_like");
-		int date = object.getInt("dt");
+		try {
+			city = luogo;
 		
+			JSONArray arr = object.getJSONArray("weather");
+			for(int i = 0; i < arr.length(); i++) 
+				description = arr.getJSONObject(i).getString("description");
+		
+			normalTemp = object.getJSONObject("main").getDouble("temp");
+			maximalTemp = object.getJSONObject("main").getDouble("temp_max");
+			minimalTemp = object.getJSONObject("main").getDouble("temp_min");
+			feelsLikeTemp = object.getJSONObject("main").getDouble("feels_like");
+			date = object.getInt("dt");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return new MyData(city, description, normalTemp, maximalTemp, minimalTemp, feelsLikeTemp, date);
 	}
 }
