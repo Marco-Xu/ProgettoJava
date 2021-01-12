@@ -2,6 +2,8 @@ package it.univpm.ProjectOOP.Data;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class MyData implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -11,6 +13,7 @@ public class MyData implements Serializable{
 	protected double maximalTemp;
 	protected double minimalTemp;
 	protected double feelsLikeTemp;
+	@JsonIgnore
 	protected int date;
 
 
@@ -99,9 +102,29 @@ public class MyData implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "MyData [" + "\ncity=" + city + "\ndescription=" + description + "\nnormalTemp="
+		return "MyData:" + "\ncity=" + city + "\ndescription=" + description + "\nnormalTemp="
 				+ normalTemp + "\nmaximalTemp=" + maximalTemp + "\nminimalTemp=" + minimalTemp + "\nfeelsLikeTemp="
-				+ feelsLikeTemp + "\ndate=" + date + "\n]";
+				+ feelsLikeTemp + "\ndate=" + date + "\n";
 	}
 	
+	public void toCelsius() {
+		normalTemp -= 273.15;
+		maximalTemp -= 273.15;
+		minimalTemp -= 273.15;
+		feelsLikeTemp -=  273.15;
+	}
+	
+	public void toFahrenheit() {
+		normalTemp = (normalTemp - 273.15) * 9/5 + 32;
+		maximalTemp = (maximalTemp - 273.15) * 9/5 + 32;
+		minimalTemp = (minimalTemp - 273.15) * 9/5 + 32;
+		feelsLikeTemp = (feelsLikeTemp - 273.15) * 9/5 + 32;
+	}
+	
+	public void roundNum() {
+		normalTemp = Math.round(normalTemp * 10.0) / 10.0;
+		maximalTemp = Math.round(maximalTemp * 10.0) / 10.0;
+		minimalTemp = Math.round(minimalTemp * 10.0) / 10.0;
+		feelsLikeTemp = Math.round(feelsLikeTemp * 10.0) / 10.0;
+	}
 }

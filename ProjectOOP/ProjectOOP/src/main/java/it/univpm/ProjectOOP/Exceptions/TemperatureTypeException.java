@@ -7,11 +7,11 @@ public class TemperatureTypeException extends Exception{
 	 */
 	private static final long serialVersionUID = 2L;
 
-	TemperatureTypeException() {
+	public TemperatureTypeException() {
 		super();
 	}
 	
-	TemperatureTypeException(String msg){
+	public TemperatureTypeException(String msg){
 		super(msg);
 	}
 }

@@ -36,6 +36,7 @@ public class DataWeather {
 			date = object.getInt("dt");
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("Errore");
 		}
 		return new MyData(city, description, normalTemp, maximalTemp, minimalTemp, feelsLikeTemp, date);
 	}
