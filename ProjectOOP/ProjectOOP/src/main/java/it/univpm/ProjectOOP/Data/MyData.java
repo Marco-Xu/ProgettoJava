@@ -1,6 +1,9 @@
 package it.univpm.ProjectOOP.Data;
 
-public class MyData {
+import java.io.Serializable;
+
+public class MyData implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 	protected String city;
 	protected String description;
@@ -12,7 +15,6 @@ public class MyData {
 
 
 	public MyData() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public MyData(String city, String description, double normalTemp, double maximalTemp, double minimalTemp, double feelsLikeTemp, int date) {

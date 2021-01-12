@@ -16,7 +16,7 @@ class ProjectOopApplicationTests {
 		ApiGet api = new ApiGet();
     	DataWeather dw = new DataWeather();
     	MyData a = new MyData();
-    	a = dw.Parse(api.Read("Ancona"), "Ancona");
+    	//a = dw.Parse(api.Read("Ancona"), "Ancona");
     	System.out.println(a);
 	}
 

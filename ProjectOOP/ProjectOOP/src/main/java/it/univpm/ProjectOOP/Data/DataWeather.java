@@ -7,9 +7,8 @@ import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 import it.univpm.ProjectOOP.OpenWeather.ApiGet;
 
 public class DataWeather {
-	public static MyData Parse(String luogo) throws CityNotFoundException{
+	public static MyData parse(String city) throws CityNotFoundException{
 		
-		String city = "";
 		String description = "";
 		double normalTemp = 0;
 		double maximalTemp = 0;
@@ -17,13 +16,14 @@ public class DataWeather {
 		double feelsLikeTemp = 0;
 		int date = 0;
 		
+		
 		JSONObject object = ApiGet.Read(city);
 		
 		if(!checkCity(object))
 			throw new CityNotFoundException("Città non trovata");
 		
 		try {
-			city = luogo;
+			
 		
 			JSONArray arr = object.getJSONArray("weather");
 			for(int i = 0; i < arr.length(); i++) 
@@ -46,7 +46,7 @@ public class DataWeather {
 			mess = obj.getString("message");
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			return true;
 		}
 		
 		if(mess.equals("city not found"))
