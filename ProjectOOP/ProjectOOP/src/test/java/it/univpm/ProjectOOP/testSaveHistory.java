@@ -8,17 +8,11 @@ import it.univpm.ProjectOOP.Data.SaveHistory;
 
 
 @SpringBootTest
-public class testSaveHistory {
-	@Before
-	static void setup() {
-		
-	}
-	
+public class testSaveHistory {	
 	@Test
 	void contextLoads() {
-		//Assertions.assertThrows(CityNotFoundException.class, () -> {
-		    SaveHistory.save("Rimini");
-		  //});
-		
+		SaveHistory.save("Rimini");
+		SaveHistory.save("Ancona");
+		SaveHistory.save("San Marino");
 	}
 }

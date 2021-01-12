@@ -11,7 +11,7 @@ public class testDataWeather {
 	@Test
 	void contextLoads() {
 		try {
-			DataWeather.parse("Ancona");
+			System.out.println(DataWeather.parse("Ancona"));
 		} catch (CityNotFoundException e) {
 			e.printStackTrace();
 		}

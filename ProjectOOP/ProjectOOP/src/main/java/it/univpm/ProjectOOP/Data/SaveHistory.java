@@ -17,44 +17,53 @@ public class SaveHistory {
 	@SuppressWarnings("unchecked")
 	public static void save(String city) {
 		String file = city + ".dat";
-		File temp = new File(file);
-		boolean exists = temp.exists();
 		Vector<MyData> data = new Vector<MyData>();
 		MyData md = new MyData();
+		File actualFile = new File ("/home/marco/ProgettoJava/ProjectOOP/ProjectOOP/data", file);
+		boolean exists = actualFile.exists();
+
 		try {
 			md = (DataWeather.parse(city));
 		}
 		catch (CityNotFoundException e) {
-			
+			e.printStackTrace();
 		}
 		
 		if(exists)
 			try {
-				ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)));
+
+				ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(actualFile)));
 				data = (Vector<MyData>)in.readObject();
 				in.close();
-			
-				data.add(md);
 				
-				ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
-				out.writeObject(data);
-				out.close();
+				int maxTime = 0;
+				for(MyData a : data)
+					if(maxTime < a.getDate())
+						maxTime = a.getDate();
+				if(md.getDate() > (maxTime + 3600)) {
+					data.add(md);
+					ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(actualFile)));
+					out.writeObject(data);
+					out.close();
+				}
 			}
 			catch (IOException e) {
+				e.printStackTrace();
 			}
-			
 			catch (Exception e) {
+				e.printStackTrace();
 			}
 		else
 			try {
+
 				data.add(md);
 				
-				ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
+				ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(actualFile)));
 				out.writeObject(data);
 				out.close();
 			}
 		catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 
 	}
