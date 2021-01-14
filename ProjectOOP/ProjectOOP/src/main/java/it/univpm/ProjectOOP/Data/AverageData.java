@@ -4,15 +4,9 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class AverageData implements Serializable{
+public class AverageData extends AbData implements Serializable {
 	
 	private static final long serialVersionUID = 1;
-
-	protected String city;
-	protected double normalTemp;
-	protected double maximalTemp;
-	protected double minimalTemp;
-	protected double feelsLikeTemp;
 	@JsonIgnore
 	protected int n;
 	
@@ -29,40 +23,16 @@ public class AverageData implements Serializable{
 		this.n = n;
 	}
 	
-	public String getCity() {
-		return city;
-	}
-	
-	public void setCity(String city) {
-		this.city = city;
-	}
-	
-	public double getNormalTemp() {
-		return normalTemp/n;
-	}
-	
 	public void addNormalTemp(double normalTemp) {
 		this.normalTemp += normalTemp;
 	}
 
-	public double getMaximalTemp() {
-		return maximalTemp/n;
-	}
-	
 	public void addMaximalTemp(double maximalTemp) {
 		this.maximalTemp += maximalTemp;
 	}
 	
-	public double getMinimalTemp() {
-		return minimalTemp/n;
-	}
-	
 	public void addMinimalTemp(double minimalTemp) {
 		this.minimalTemp += minimalTemp;
-	}
-	
-	public double getFeelsLikeTemp() {
-		return feelsLikeTemp/n;
 	}
 	
 	public void addFeelsLikeTemp(double feelsLikeTemp) {

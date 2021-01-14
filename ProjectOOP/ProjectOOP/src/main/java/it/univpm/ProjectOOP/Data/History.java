@@ -42,11 +42,7 @@ public class History {
 	}
 	
 	private static File getDir(String city) {
-		if(!Character.isUpperCase(city.charAt(0))) {
-			String temp = city;
-			char c = Character.toUpperCase(city.charAt(0));
-			city = c + temp.substring(1,temp.length());
-		}
+		city = checkUpperCase(city);
 		String file = city + ".dat";
 		String dir = (System.getProperty("user.dir"));
 		dir += "/data";
@@ -95,5 +91,28 @@ public class History {
 		if(md.getDate() > (maxTime + 3600))
 			return true;
 		return false;
+	}
+	
+	private static String checkUpperCase(String city) {
+		boolean b = false;
+		if(!Character.isUpperCase(city.charAt(0))) {
+			String temp = city;
+			char c = Character.toUpperCase(city.charAt(0));
+			city = c + temp.substring(1,temp.length());
+		}
+		
+		for(int i = 1; i < city.length(); i++) {
+			if(b) {
+				if(!Character.isUpperCase(city.charAt(i))) {
+					String temp = city;
+					char c = Character.toUpperCase(city.charAt(i));
+					city = temp.substring(0, i) + c + temp.substring(i+1,temp.length());
+				}
+				b = false;
+			}
+			if(city.charAt(i) == ' ')
+				b = true;
+		}
+		return city;
 	}
 }

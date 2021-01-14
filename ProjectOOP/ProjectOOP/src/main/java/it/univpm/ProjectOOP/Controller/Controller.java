@@ -57,4 +57,11 @@ public class Controller {
 		return av;
 	}
 	
+	@RequestMapping(value = "stats", method = RequestMethod.GET, params = {"city", "period", "unit"})
+	public AverageData stats(@RequestParam(value = "city") String city, @RequestParam(value = "period") int period, @RequestParam(value = "unit") String type) {
+		period *= (60*60*24);
+		AverageData av = Statistics.setValori(city, period);
+		av.changeTemp(type);
+		return av;
+	}
 }

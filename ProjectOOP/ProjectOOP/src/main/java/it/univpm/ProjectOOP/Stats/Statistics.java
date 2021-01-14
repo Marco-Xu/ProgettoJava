@@ -2,7 +2,6 @@ package it.univpm.ProjectOOP.Stats;
 
 import java.util.Vector;
 import it.univpm.ProjectOOP.Data.*;
-import it.univpm.ProjectOOP.OpenWeather.ApiGet;
 
 public class Statistics{
 	
