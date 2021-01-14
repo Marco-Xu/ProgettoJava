@@ -13,18 +13,15 @@ import java.util.Vector;
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 
 public class History {
-	public static boolean save(String city) {
+	public static boolean save(String city) throws CityNotFoundException {
 		Vector<MyData> data = new Vector<MyData>();
 		MyData md = new MyData();
 		File actualFile = getDir(city);
 
-		try {
-			md = (DataWeather.parse(city));
-		}
-		catch (CityNotFoundException e) {
-			e.printStackTrace();
-		}
-		
+		md = (DataWeather.parse(city));
+		if(md.description == "")
+			throw new CityNotFoundException("Città non trovata.");
+
 		data = getData(actualFile);
 		if(checkDate(data, md)) {
 			data.add(md);
@@ -35,9 +32,12 @@ public class History {
 		return false;
 	}
 	
-	public static Vector<MyData> check(String city) {
+	public static Vector<MyData> check(String city) throws CityNotFoundException {
 		File actualFile = getDir(city);
 		Vector<MyData> data = getData(actualFile);
+		if(data.isEmpty())
+			throw new CityNotFoundException("Città non trovata.");
+		
 		return data;
 	}
 	

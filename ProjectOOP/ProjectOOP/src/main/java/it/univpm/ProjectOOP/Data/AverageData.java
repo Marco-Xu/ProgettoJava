@@ -44,10 +44,10 @@ public class AverageData extends AbData implements Serializable {
 	}
 	
 	public void calc() {
-		this.normalTemp = getNormalTemp();
-		this.maximalTemp = getMaximalTemp();
-		this.minimalTemp = getMinimalTemp();
-		this.feelsLikeTemp = getFeelsLikeTemp();
+		this.normalTemp = getNormalTemp() / n;
+		this.maximalTemp = getMaximalTemp() / n;
+		this.minimalTemp = getMinimalTemp() / n;
+		this.feelsLikeTemp = getFeelsLikeTemp() / n;
 	}
 	
 	@Override

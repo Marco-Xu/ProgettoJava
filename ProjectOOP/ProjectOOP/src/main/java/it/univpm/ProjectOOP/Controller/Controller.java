@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import it.univpm.ProjectOOP.Data.*;
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
+import it.univpm.ProjectOOP.Exceptions.NotIntegerException;
 import it.univpm.ProjectOOP.Exceptions.TemperatureTypeException;
 import it.univpm.ProjectOOP.Stats.Statistics;
 
@@ -37,31 +38,52 @@ public class Controller {
 	}
 	
 	@RequestMapping(value = "save", method = RequestMethod.GET, params = "city")
-	public String saving(@RequestParam(value = "city") String city) {
-		
+	public String saving(@RequestParam(value = "city") String city) throws CityNotFoundException {
+	
 		if(History.save(city))
 			return "Dati salvati.";
+			
 		return "Tempo trascorso dall'ultimo slavataggio insufficiente.";
 	}
 
 	@RequestMapping(value = "check", method = RequestMethod.GET, params = "city")
-	public Vector<MyData> check(@RequestParam(value = "city") String city) {
+	public Vector<MyData> check(@RequestParam(value = "city") String city) throws CityNotFoundException {
 		Vector<MyData> data = History.check(city);
 		return data;
 	}
 	
-	@RequestMapping(value = "stats", method = RequestMethod.GET, params = {"city", "period"})
-	public AverageData stats(@RequestParam(value = "city") String city, @RequestParam(value = "period") int period) {
-		period *= (60*60*24);
-		AverageData av = Statistics.setValori(city, period);
+	
+	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city", "period"})
+	public AverageData stats(@RequestParam(value = "city") String city, @RequestParam(value = "period") String period) throws CityNotFoundException, NotIntegerException {
+		int date;
+		try {
+		   date = Integer.parseInt(period);
+		}
+		catch (NumberFormatException e) {
+		   throw new NotIntegerException("Formato di 'period' non valido.");
+		}
+		
+		date *= (60*60*24);
+		AverageData av = Statistics.setValori(city, date);
 		return av;
 	}
 	
-	@RequestMapping(value = "stats", method = RequestMethod.GET, params = {"city", "period", "unit"})
-	public AverageData stats(@RequestParam(value = "city") String city, @RequestParam(value = "period") int period, @RequestParam(value = "unit") String type) {
-		period *= (60*60*24);
-		AverageData av = Statistics.setValori(city, period);
-		av.changeTemp(type);
+	
+	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city", "period", "unit"})
+	public AverageData stats(@RequestParam(value = "city") String city, @RequestParam(value = "period") String period, @RequestParam(value = "unit") String type) throws CityNotFoundException, NotIntegerException, TemperatureTypeException {
+		int date;
+		try {
+		   date = Integer.parseInt(period);
+		}
+		catch (NumberFormatException e) {
+		   throw new NotIntegerException("Formato di 'period' non valido.");
+		}
+		date *= (60*60*24);
+		AverageData av = Statistics.setValori(city, date);
+		
+		if(!av.changeTemp(type))
+			throw new TemperatureTypeException("Unità di misura non valida.");
+		
 		return av;
 	}
 }
