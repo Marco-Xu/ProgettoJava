@@ -15,7 +15,7 @@ import it.univpm.ProjectOOP.Exceptions.TemperatureTypeException;
 @RestController
 public class Controller {
 
-	@RequestMapping(value = "weather", method = RequestMethod.GET)
+	@RequestMapping(value = "weather", method = RequestMethod.GET, params = "city")
 	public MyData getDataWeather(@RequestParam(value = "city") String city) throws CityNotFoundException{
 		MyData dw = DataWeather.parse(city);
 		if(dw.getDescription() == "")
@@ -23,7 +23,7 @@ public class Controller {
 		return dw;
 	}
 	
-	@RequestMapping(value = "tempo", method = RequestMethod.GET)
+	@RequestMapping(value = "weather", method = RequestMethod.GET, params = {"city", "unit"})
 	public MyData getDataWeather(@RequestParam(value = "city") String city, @RequestParam(value = "unit") String type) throws TemperatureTypeException, CityNotFoundException {
 		MyData dw = DataWeather.parse(city);
 		
@@ -36,17 +36,16 @@ public class Controller {
 		return dw;
 	}
 	
-	
-	@RequestMapping(value = "/{city}/save", method = RequestMethod.GET)
-	public String saving(@PathVariable String city) {
+	@RequestMapping(value = "/save", method = RequestMethod.GET, params = "city")
+	public String saving(@RequestParam(value = "city") String city) {
 		
 		if(History.save(city))
 			return "Dati salvati.";
 		return "Tempo trascorso dall'ultimo slavataggio insufficiente.";
 	}
 
-	@RequestMapping(value = "/{city}/check", method = RequestMethod.GET)
-	public Vector<MyData> check(@PathVariable String city) {
+	@RequestMapping(value = "/check", method = RequestMethod.GET, params = "city")
+	public Vector<MyData> check(@RequestParam(value = "city") String city) {
 		Vector<MyData> data = History.check(city);
 		return data;
 	}

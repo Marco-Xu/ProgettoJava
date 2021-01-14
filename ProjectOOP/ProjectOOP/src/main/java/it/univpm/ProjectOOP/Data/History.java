@@ -26,9 +26,12 @@ public class History {
 		}
 		
 		data = getData(actualFile);
-		data.add(md);
-		if(checkDate(data, md) && writeData(actualFile, data))
-			return true;
+		if(checkDate(data, md)) {
+			data.add(md);
+			if(writeData(actualFile, data))
+				return true;
+			return false;	
+		}
 		return false;
 	}
 	
