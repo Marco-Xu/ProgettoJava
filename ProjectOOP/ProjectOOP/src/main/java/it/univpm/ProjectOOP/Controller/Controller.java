@@ -2,7 +2,6 @@ package it.univpm.ProjectOOP.Controller;
 
 import java.util.Vector;
 
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import it.univpm.ProjectOOP.Data.*;
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 import it.univpm.ProjectOOP.Exceptions.TemperatureTypeException;
+import it.univpm.ProjectOOP.Stats.Statistics;
 
 @RestController
 public class Controller {
@@ -36,7 +36,7 @@ public class Controller {
 		return dw;
 	}
 	
-	@RequestMapping(value = "/save", method = RequestMethod.GET, params = "city")
+	@RequestMapping(value = "save", method = RequestMethod.GET, params = "city")
 	public String saving(@RequestParam(value = "city") String city) {
 		
 		if(History.save(city))
@@ -44,10 +44,17 @@ public class Controller {
 		return "Tempo trascorso dall'ultimo slavataggio insufficiente.";
 	}
 
-	@RequestMapping(value = "/check", method = RequestMethod.GET, params = "city")
+	@RequestMapping(value = "check", method = RequestMethod.GET, params = "city")
 	public Vector<MyData> check(@RequestParam(value = "city") String city) {
 		Vector<MyData> data = History.check(city);
 		return data;
+	}
+	
+	@RequestMapping(value = "stats", method = RequestMethod.GET, params = {"city", "period"})
+	public AverageData stats(@RequestParam(value = "city") String city, @RequestParam(value = "period") int period) {
+		period *= (60*60*24);
+		AverageData av = Statistics.setValori(city, period);
+		return av;
 	}
 	
 }
