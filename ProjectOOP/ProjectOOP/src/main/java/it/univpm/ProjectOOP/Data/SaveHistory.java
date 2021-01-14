@@ -15,8 +15,9 @@ import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 public class SaveHistory {
 
 	@SuppressWarnings("unchecked")
-	public static void save(String city) {
+	public static boolean save(String city) {
 		String file = city + ".dat";
+		int maxTime = 0;
 		Vector<MyData> data = new Vector<MyData>();
 		MyData md = new MyData();
 		String dir = (System.getProperty("user.dir"));
@@ -38,7 +39,6 @@ public class SaveHistory {
 				data = (Vector<MyData>)in.readObject();
 				in.close();
 				
-				int maxTime = 0;
 				for(MyData a : data)
 					if(maxTime < a.getDate())
 						maxTime = a.getDate();
@@ -47,7 +47,9 @@ public class SaveHistory {
 					ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(actualFile)));
 					out.writeObject(data);
 					out.close();
+					return true;
 				}
+				return false;
 			}
 			catch (IOException e) {
 				e.printStackTrace();
@@ -63,11 +65,12 @@ public class SaveHistory {
 				ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(actualFile)));
 				out.writeObject(data);
 				out.close();
+				return true;
 			}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		return false;
 	}
 
 }
