@@ -2,6 +2,8 @@ package it.univpm.ProjectOOP.Data;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class AverageData implements Serializable{
 	
 	private static final long serialVersionUID = 1;
@@ -11,10 +13,10 @@ public class AverageData implements Serializable{
 	protected double maximalTemp;
 	protected double minimalTemp;
 	protected double feelsLikeTemp;
+	@JsonIgnore
 	protected int n;
 	
 	public AverageData() {
-		
 	}
 	
 	public AverageData(String city, double normalTemp, double maximalTemp, double minimalTemp, double feelsLikeTemp, int n) {
@@ -42,7 +44,7 @@ public class AverageData implements Serializable{
 	public void addNormalTemp(double normalTemp) {
 		this.normalTemp += normalTemp;
 	}
-	
+
 	public double getMaximalTemp() {
 		return maximalTemp/n;
 	}
@@ -71,5 +73,16 @@ public class AverageData implements Serializable{
 		return n++;
 	}
 	
+	public void calc() {
+		this.normalTemp = getNormalTemp();
+		this.maximalTemp = getMaximalTemp();
+		this.minimalTemp = getMinimalTemp();
+		this.feelsLikeTemp = getFeelsLikeTemp();
+	}
 	
+	@Override
+	public String toString() {
+		return "AverageData:" + "\ncity : " + city + "\nnormalTemp : " + normalTemp + "\nmaximalTemp : " + maximalTemp
+				+ "\nminimalTemp : " + minimalTemp + "\nfeelsLikeTemp : " + feelsLikeTemp + "\n";
+	}
 }
