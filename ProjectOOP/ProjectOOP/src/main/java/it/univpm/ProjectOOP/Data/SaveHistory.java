@@ -19,7 +19,9 @@ public class SaveHistory {
 		String file = city + ".dat";
 		Vector<MyData> data = new Vector<MyData>();
 		MyData md = new MyData();
-		File actualFile = new File ("/home/marco/ProgettoJava/ProjectOOP/ProjectOOP/data", file);
+		String dir = (System.getProperty("user.dir"));
+		dir += "/data";
+		File actualFile = new File (dir, file);
 		boolean exists = actualFile.exists();
 
 		try {
