@@ -127,4 +127,34 @@ public class MyData implements Serializable{
 		minimalTemp = Math.round(minimalTemp * 10.0) / 10.0;
 		feelsLikeTemp = Math.round(feelsLikeTemp * 10.0) / 10.0;
 	}
+	
+	public boolean changeTemp(String type) {
+		switch(type) {
+			case "Celsius":
+			case "celsius":
+			case "C":
+			case "c":
+				toCelsius();
+				roundNum();
+				break;
+				
+			case "Fahrenheit":
+			case "fahrenheit":
+			case "F":
+			case "f":
+				toFahrenheit();
+				roundNum();
+				break;
+			
+			case "Kelvin":
+			case "kelvin":
+			case "K":
+			case "k":
+				break;
+			
+			default:
+				return false;
+		}
+		return true;
+	}
 }

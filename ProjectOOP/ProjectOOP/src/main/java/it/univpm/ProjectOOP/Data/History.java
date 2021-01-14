@@ -32,7 +32,18 @@ public class History {
 		return false;
 	}
 	
+	public static Vector<MyData> check(String city) {
+		File actualFile = getDir(city);
+		Vector<MyData> data = getData(actualFile);
+		return data;
+	}
+	
 	private static File getDir(String city) {
+		if(!Character.isUpperCase(city.charAt(0))) {
+			String temp = city;
+			char c = Character.toUpperCase(city.charAt(0));
+			city = c + temp.substring(1,temp.length());
+		}
 		String file = city + ".dat";
 		String dir = (System.getProperty("user.dir"));
 		dir += "/data";

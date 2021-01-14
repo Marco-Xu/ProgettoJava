@@ -1,5 +1,7 @@
 package it.univpm.ProjectOOP.Controller;
 
+import java.util.Vector;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,34 +28,10 @@ public class Controller {
 		MyData dw = DataWeather.parse(city);
 		
 		if(dw.getDescription() == "")
-				throw new CityNotFoundException("Città non trovata.");
+			throw new CityNotFoundException("Città non trovata.");
 		
-		switch(type) {
-		case "Celsius":
-		case "celsius":
-		case "C":
-		case "c":
-			dw.toCelsius();
-			dw.roundNum();
-			break;
-			
-		case "Fahrenheit":
-		case "fahrenheit":
-		case "F":
-		case "f":
-			dw.toFahrenheit();
-			dw.roundNum();
-			break;
-			
-		case "Kelvin":
-		case "kelvin":
-		case "K":
-		case "k":
-			break;
-			
-		default:
+		if(!dw.changeTemp(type))
 			throw new TemperatureTypeException("Unità di misura non valida.");
-		}
 		
 		return dw;
 	}
@@ -67,6 +45,10 @@ public class Controller {
 		return "Tempo trascorso dall'ultimo slavataggio insufficiente.";
 	}
 
-	
+	@RequestMapping(value = "/{city}/check", method = RequestMethod.GET)
+	public Vector<MyData> check(@PathVariable String city) {
+		Vector<MyData> data = History.check(city);
+		return data;
+	}
 	
 }
