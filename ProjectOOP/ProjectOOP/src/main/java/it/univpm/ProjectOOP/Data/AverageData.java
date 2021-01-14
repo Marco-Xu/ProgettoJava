@@ -17,8 +17,7 @@ public class AverageData implements Serializable{
 		
 	}
 	
-	public AverageData(String city, double normalTemp, double maximalTemp, double minimalTemp, double feelsLikeTemp,
-			int n) {
+	public AverageData(String city, double normalTemp, double maximalTemp, double minimalTemp, double feelsLikeTemp, int n) {
 		super();
 		this.city = city;
 		this.normalTemp = normalTemp;

@@ -62,7 +62,7 @@ public class Controller {
 	@RequestMapping(value = "/{city}/save", method = RequestMethod.GET)
 	public String saving(@PathVariable String city) {
 		
-		if(SaveHistory.save(city))
+		if(History.save(city))
 			return "Dati salvati.";
 		return "Tempo trascorso dall'ultimo slavataggio insufficiente.";
 	}
