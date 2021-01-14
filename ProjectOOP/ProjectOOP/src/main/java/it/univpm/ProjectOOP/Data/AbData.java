@@ -105,8 +105,8 @@ public abstract class AbData implements Serializable{
 	}
 
 	public String toString() {
-		return "AbData [city=" + city + ", normalTemp=" + normalTemp + ", maximalTemp=" + maximalTemp + ", minimalTemp="
-				+ minimalTemp + ", feelsLikeTemp=" + feelsLikeTemp + "]";
+		return "\ncity : " + city + "\nnormalTemp : " + normalTemp + "\nmaximalTemp : " + maximalTemp + "\nminimalTemp : "
+				+ minimalTemp + "\nfeelsLikeTemp : " + feelsLikeTemp + "\n";
 	}
 	
 	

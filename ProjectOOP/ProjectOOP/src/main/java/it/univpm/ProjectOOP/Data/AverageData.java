@@ -52,7 +52,6 @@ public class AverageData extends AbData implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "AverageData:" + "\ncity : " + city + "\nnormalTemp : " + normalTemp + "\nmaximalTemp : " + maximalTemp
-				+ "\nminimalTemp : " + minimalTemp + "\nfeelsLikeTemp : " + feelsLikeTemp + "\n";
+		return "AverageData:" + super.toString();
 	}
 }

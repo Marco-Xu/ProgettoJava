@@ -45,9 +45,7 @@ public class MyData extends AbData implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "MyData:" + "\ncity : " + city + "\ndescription : " + description + "\nnormalTemp : "
-				+ normalTemp + "\nmaximalTemp : " + maximalTemp + "\nminimalTemp : " + minimalTemp + "\nfeelsLikeTemp : "
-				+ feelsLikeTemp + "\ndate : " + date + "\n";
+		return "MyData:" + super.toString() + "\ndescription : " + description + "\ndate : " + date + "\n";
 	}
 	
 }
