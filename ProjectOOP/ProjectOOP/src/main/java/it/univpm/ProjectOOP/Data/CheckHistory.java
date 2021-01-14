@@ -12,7 +12,9 @@ public class CheckHistory {
 	@SuppressWarnings("unchecked")
 	public static void check(String city) {
 		String file = city + ".dat";
-		File actualFile = new File ("/home/marco/ProgettoJava/ProjectOOP/ProjectOOP/data", file);
+		String dir = (System.getProperty("user.dir"));
+		dir += "/data";
+		File actualFile = new File (dir, file);
 		boolean exists = actualFile.exists();
 		Vector<MyData> data = new Vector<MyData>();
 		
