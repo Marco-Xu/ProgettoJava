@@ -34,5 +34,20 @@ Il parametro "type" per la selezione dell'unità di misura accetta i seguenti fo
 
 Il parametro "period" accetta solo i giorni in numero intero (es. una settimana = 7, un mese = 30, ecc...).
 ## Diagrammi UML
-### Diagramma dei casi d'uso
-![Diagramma casi d'uso.PNG](https://github.com/Marco-Xu/ProgettoJava/UML)
+## Diagramma dei casi d'uso
+![Diagramma casi d'uso](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20casi%20d'uso.PNG)
+## Diagramma delle classi
+### Package Controller
+![Diagramma classi Controller](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20Controller.PNG)
+### Package Data
+![Diagramma classi Data](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20Data.PNG)
+### Package Type
+![Diagramma classi Type](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20Type.PNG)
+### Package Stats
+![Diagramma classi Stats](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20Stats.PNG)
+### Package OpenWeather
+![Diagramma classi OpenWeather](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20OpenWeather.PNG)
+### Package Exceptions
+![Diagramma classi Exceptions](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20Exceptions.PNG)
+
+
