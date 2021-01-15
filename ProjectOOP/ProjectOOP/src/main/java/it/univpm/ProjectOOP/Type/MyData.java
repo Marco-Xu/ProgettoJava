@@ -1,4 +1,4 @@
-package it.univpm.ProjectOOP.Data;
+package it.univpm.ProjectOOP.Type;
 
 import java.io.Serializable;
 

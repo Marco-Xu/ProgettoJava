@@ -11,6 +11,8 @@ import java.io.ObjectOutputStream;
 import java.util.Vector;
 
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
+import it.univpm.ProjectOOP.OpenWeather.DataWeather;
+import it.univpm.ProjectOOP.Type.MyData;
 
 public class History {
 	public static boolean save(String city) throws CityNotFoundException {
@@ -19,7 +21,7 @@ public class History {
 		File actualFile = getDir(city);
 
 		md = (DataWeather.parse(city));
-		if(md.description == "")
+		if(md.getDescription() == "")
 			throw new CityNotFoundException("Città non trovata.");
 
 		data = getData(actualFile);

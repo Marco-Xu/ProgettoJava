@@ -11,11 +11,20 @@ import it.univpm.ProjectOOP.Data.*;
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 import it.univpm.ProjectOOP.Exceptions.NotIntegerException;
 import it.univpm.ProjectOOP.Exceptions.TemperatureTypeException;
+import it.univpm.ProjectOOP.OpenWeather.DataWeather;
 import it.univpm.ProjectOOP.Stats.Statistics;
+import it.univpm.ProjectOOP.Type.AverageData;
+import it.univpm.ProjectOOP.Type.InfData;
+import it.univpm.ProjectOOP.Type.MyData;
 
 @RestController
 public class Controller {
-
+	
+	@RequestMapping(value = "metadata", method = RequestMethod.GET)
+	public Vector<InfData> getDataWeather() {
+		return new MetaData().getMetadata();
+	}
+	
 	@RequestMapping(value = "weather", method = RequestMethod.GET, params = "city")
 	public MyData getDataWeather(@RequestParam(value = "city") String city) throws CityNotFoundException{
 		MyData dw = DataWeather.parse(city);
