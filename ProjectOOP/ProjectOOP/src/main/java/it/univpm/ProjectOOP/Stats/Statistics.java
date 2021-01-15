@@ -18,7 +18,7 @@ public class Statistics{
 		av.setCity(city);
 		int dateNow = 0;
 		try {
-			dateNow = (DataWeather.parse("rimini")).getDate();
+			dateNow = (DataWeather.parse(city)).getDate();
 		}
 		catch(Exception e) {
 		}

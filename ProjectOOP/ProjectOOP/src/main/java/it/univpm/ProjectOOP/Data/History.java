@@ -15,6 +15,8 @@ import it.univpm.ProjectOOP.OpenWeather.DataWeather;
 import it.univpm.ProjectOOP.Type.MyData;
 
 public class History {
+	private static int time = 0;
+	
 	public static boolean save(String city) throws CityNotFoundException {
 		Vector<MyData> data = new Vector<MyData>();
 		MyData md = new MyData();
@@ -92,6 +94,7 @@ public class History {
 				maxTime = a.getDate();
 		if(md.getDate() > (maxTime + 3600))
 			return true;
+		time = md.getDate() - maxTime;
 		return false;
 	}
 	
@@ -116,5 +119,9 @@ public class History {
 				b = true;
 		}
 		return city;
+	}
+	
+	public static int getTime() {
+		return time;
 	}
 }

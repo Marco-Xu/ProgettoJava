@@ -52,7 +52,7 @@ public class Controller {
 		if(History.save(city))
 			return "Dati salvati.";
 			
-		return "Tempo trascorso dall'ultimo slavataggio insufficiente.";
+		return "Tempo trascorso dall'ultimo slavataggio insufficiente.\nMancano : " + History.getTime() + 's';
 	}
 
 	@RequestMapping(value = "check", method = RequestMethod.GET, params = "city")
