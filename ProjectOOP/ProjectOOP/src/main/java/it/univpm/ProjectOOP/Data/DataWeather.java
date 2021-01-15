@@ -18,10 +18,7 @@ public class DataWeather {
 		
 		
 		JSONObject object = ApiGet.Read(city);
-/*		
-		if(!checkCity(object))
-			throw new CityNotFoundException("Città");
-*/	
+
 		try {
 			
 		
@@ -39,20 +36,5 @@ public class DataWeather {
 		}
 		return new MyData(city, description, normalTemp, maximalTemp, minimalTemp, feelsLikeTemp, date);
 	}
-/*	
-	public static boolean checkCity(JSONObject obj) {
-		String mess = "";
-		try {
-			mess = obj.getString("message");
-		}
-		catch (Exception e) {
-			return true;
-		}
-		
-		if(mess.equals("city not found"))
-			return false;
-		return true;
-	}
-*/	
 	
 }
