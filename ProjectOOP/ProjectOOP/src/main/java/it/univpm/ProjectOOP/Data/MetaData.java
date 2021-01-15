@@ -19,7 +19,7 @@ public class MetaData {
 		metadata.add(new InfData("VarMaximalTemp", "Varianza temperatura massima", "Double"));
 		metadata.add(new InfData("VarMinimalTemp", "Varianza temperatura minima", "Double"));
 		metadata.add(new InfData("VarFeelsLikeTemp", "Varianza temperatura percepita", "Double"));
-		metadata.add(new InfData("n", "Indice elemento", "Int"));
+		metadata.add(new InfData("n", "Numero elementi nello storico", "Int"));
 		
 		return metadata;
 	}
