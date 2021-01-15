@@ -15,6 +15,11 @@ public class MetaData {
 		metadata.add(new InfData("minimalTemp", "Temperatura minima", "Double"));
 		metadata.add(new InfData("feelsLikeTemp", "Temperatura percepita", "Double"));
 		metadata.add(new InfData("date", "Data in formato unix", "Int"));
+		metadata.add(new InfData("VarNormalTemp", "Varianza temperatura media", "Double"));
+		metadata.add(new InfData("VarMaximalTemp", "Varianza temperatura massima", "Double"));
+		metadata.add(new InfData("VarMinimalTemp", "Varianza temperatura minima", "Double"));
+		metadata.add(new InfData("VarFeelsLikeTemp", "Varianza temperatura percepita", "Double"));
+		metadata.add(new InfData("n", "Indice elemento", "Int"));
 		
 		return metadata;
 	}
