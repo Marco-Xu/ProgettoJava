@@ -16,6 +16,7 @@ public class AverageData extends AbData implements Serializable {
 	
 	@JsonIgnore
 	protected int n;
+	@JsonIgnore
 	protected Vector<Double> allNormalTemp = new Vector<Double>();
 	@JsonIgnore
 	protected Vector<Double> allMaximalTemp = new Vector<Double>();
@@ -23,15 +24,6 @@ public class AverageData extends AbData implements Serializable {
 	protected Vector<Double> allMinimalTemp = new Vector<Double>();
 	@JsonIgnore
 	protected Vector<Double> allFeelsLikeTemp = new Vector<Double>();
-	
-	
-	
-	
-
-	
-	public Vector<Double> getAllNormalTemp() {
-		return allNormalTemp;
-	}
 
 	public AverageData() {
 	}
