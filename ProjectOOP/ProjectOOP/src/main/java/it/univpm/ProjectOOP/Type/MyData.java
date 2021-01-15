@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class MyData extends AbData implements Serializable{
+public class MyData extends MainData implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	protected String description;

@@ -2,7 +2,7 @@ package it.univpm.ProjectOOP.Type;
 
 import java.io.Serializable;
 
-public abstract class AbData implements Serializable{
+public class MainData implements Serializable{
 	/**
 	 * 
 	 */
@@ -68,10 +68,14 @@ public abstract class AbData implements Serializable{
 	}
 	
 	public void roundNum() {
-		normalTemp = Math.round(normalTemp * 10.0) / 10.0;
-		maximalTemp = Math.round(maximalTemp * 10.0) / 10.0;
-		minimalTemp = Math.round(minimalTemp * 10.0) / 10.0;
-		feelsLikeTemp = Math.round(feelsLikeTemp * 10.0) / 10.0;
+		normalTemp = round(normalTemp);
+		maximalTemp = round(maximalTemp);
+		minimalTemp = round(minimalTemp);
+		feelsLikeTemp = round(feelsLikeTemp);
+	}
+	
+	public double round(double val) {
+		return Math.round(val * 10.0) / 10.0;
 	}
 	
 	public boolean changeTemp(String type) {
@@ -96,6 +100,7 @@ public abstract class AbData implements Serializable{
 			case "kelvin":
 			case "K":
 			case "k":
+				roundNum();
 				break;
 			
 			default:

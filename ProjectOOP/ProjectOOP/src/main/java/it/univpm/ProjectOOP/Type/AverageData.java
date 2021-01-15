@@ -5,7 +5,7 @@ import java.util.Vector;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class AverageData extends AbData implements Serializable {
+public class AverageData extends MainData implements Serializable {
 	
 	private static final long serialVersionUID = 1;
 	
@@ -68,15 +68,15 @@ public class AverageData extends AbData implements Serializable {
 		this.minimalTemp = getMinimalTemp() / n;
 		this.feelsLikeTemp = getFeelsLikeTemp() / n;
 		
-		this.VarNormalTemp = getVar(allNormalTemp, normalTemp);
-		this.VarMaximalTemp = getVar(allMaximalTemp, maximalTemp);
-		this.VarMinimalTemp = getVar(allMinimalTemp, minimalTemp);
-		this.VarFeelsLikeTemp = getVar(allFeelsLikeTemp, feelsLikeTemp);
+		this.VarNormalTemp = round(getVar(allNormalTemp, normalTemp));
+		this.VarMaximalTemp = round(getVar(allMaximalTemp, maximalTemp));
+		this.VarMinimalTemp = round(getVar(allMinimalTemp, minimalTemp));
+		this.VarFeelsLikeTemp = round(getVar(allFeelsLikeTemp, feelsLikeTemp));
 	}
 	
 	private Double getVar(Vector<Double> all, double average) {
 		double temp = 0;
-		for(Double a : all) 
+		for(double a : all) 
 			temp += ((a - average) * (a - average));
 		return temp/n;
 	}
