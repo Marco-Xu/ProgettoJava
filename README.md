@@ -33,3 +33,6 @@ Il parametro "type" per la selezione dell'unità di misura accetta i seguenti fo
 * Per i gradi Fahrenheit: "Fahrenheit", "fahrenheit", "F", "f".
 
 Il parametro "period" accetta solo i giorni in numero intero (es. una settimana = 7, un mese = 30, ecc...).
+## Diagrammi UML
+### Diagramma dei casi d'uso
+![Diagramma casi d'uso.PNG](https://github.com/Marco-Xu/ProgettoJava/UML)
