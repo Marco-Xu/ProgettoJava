@@ -9,13 +9,12 @@ public class AverageData extends MainData implements Serializable {
 	
 	private static final long serialVersionUID = 1;
 	
+	protected int n;
 	protected Double VarNormalTemp;
 	protected Double VarMaximalTemp;
 	protected Double VarMinimalTemp;
 	protected Double VarFeelsLikeTemp;
 	
-	@JsonIgnore
-	protected int n;
 	@JsonIgnore
 	protected Vector<Double> allNormalTemp = new Vector<Double>();
 	@JsonIgnore
@@ -29,7 +28,6 @@ public class AverageData extends MainData implements Serializable {
 	}
 	
 	public AverageData(String city, double normalTemp, double maximalTemp, double minimalTemp, double feelsLikeTemp, int n) {
-		super();
 		this.city = city;
 		this.normalTemp = normalTemp;
 		this.maximalTemp = maximalTemp;
@@ -58,6 +56,26 @@ public class AverageData extends MainData implements Serializable {
 		allFeelsLikeTemp.add(feelsLikeTemp);
 	}
 	
+	public Double getVarNormalTemp() {
+		return VarNormalTemp;
+	}
+
+	public Double getVarMaximalTemp() {
+		return VarMaximalTemp;
+	}
+
+	public Double getVarMinimalTemp() {
+		return VarMinimalTemp;
+	}
+
+	public Double getVarFeelsLikeTemp() {
+		return VarFeelsLikeTemp;
+	}
+
+	public int getN() {
+		return n;
+	}
+	
 	public int increaseN() {
 		return n++;
 	}
@@ -80,27 +98,12 @@ public class AverageData extends MainData implements Serializable {
 			temp += ((a - average) * (a - average));
 		return temp/n;
 	}
-	
-	
-	
-	public Double getVarNormalTemp() {
-		return VarNormalTemp;
-	}
-
-	public Double getVarMaximalTemp() {
-		return VarMaximalTemp;
-	}
-
-	public Double getVarMinimalTemp() {
-		return VarMinimalTemp;
-	}
-
-	public Double getVarFeelsLikeTemp() {
-		return VarFeelsLikeTemp;
-	}
 
 	@Override
 	public String toString() {
-		return "AverageData:" + super.toString();
+		return "AverageData:" + super.toString() + "\nVarNormalTemp : " + VarNormalTemp + "\nVarMaximalTemp : " + VarMaximalTemp + "\nVarMinimalTemp : "
+				+ VarMinimalTemp + "\nVarFeelsLikeTemp : " + VarFeelsLikeTemp + "\n";
 	}
+	
+	
 }
