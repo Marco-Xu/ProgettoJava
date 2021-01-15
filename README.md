@@ -16,8 +16,9 @@ Tramite l'ambiente di sviluppo Eclipse si possono eseguire le seguenti operazion
 
 In seguito all'avvenuto successo di questi tre passi è possibile utilizzare il servizio meteo sulla porta http://localhost:8081.
 ### Richieste
-| Tipo | Rotta |                        Funzione                                  |
-|------|-------|------------------------------------------------------------------|
+| Tipo | Rotta |                        Funzione                                   |
+|------|-------|-------------------------------------------------------------------|
+| GET  |/metadata|Restituisce gli alias utilizzati.                                |
 | GET  |/weather?city="city"|Restituisce le condizioni meteo della "city" inserita.|
 | GET  |/weather?city="city"&unit="type"|Restituisce le condizioni meteo della "city" inserita con l'unità di misura "type" richiesta.|
 | GET  |/save?city="city"|Salva i dati meteo della "city" inserita nella cartella 'data'.|
