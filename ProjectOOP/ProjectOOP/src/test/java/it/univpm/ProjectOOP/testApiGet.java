@@ -9,6 +9,6 @@ import it.univpm.ProjectOOP.OpenWeather.ApiGet;
 public class testApiGet {
 	@Test
 	void contextLoads() {
-		ApiGet.Read("Ancona");
+		System.out.print(ApiGet.Read("Ancona"));
 	}
 }

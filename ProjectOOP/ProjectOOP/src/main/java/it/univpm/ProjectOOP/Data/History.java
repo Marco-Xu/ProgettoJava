@@ -94,7 +94,7 @@ public class History {
 				maxTime = a.getDate();
 		if(md.getDate() > (maxTime + 3600))
 			return true;
-		time = md.getDate() - maxTime;
+		time = 60 - ((int)(System.currentTimeMillis()/1000) - maxTime) / 60;
 		return false;
 	}
 	
