@@ -34,20 +34,33 @@ Il parametro "type" per la selezione dell'unità di misura accetta i seguenti fo
 
 Il parametro "period" accetta solo i giorni in numero intero (es. una settimana = 7, un mese = 30, ecc...).
 ## Diagrammi UML
-## Diagramma dei casi d'uso
+### Diagramma dei casi d'uso
 ![Diagramma casi d'uso](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20casi%20d'uso.PNG)
-## Diagramma delle classi
-### Package Controller
+### Diagramma delle classi
+#### Package Controller
 ![Diagramma classi Controller](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20Controller.PNG)
-### Package Data
+#### Package Data
 ![Diagramma classi Data](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20Data.PNG)
-### Package Type
+#### Package Type
 ![Diagramma classi Type](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20Type.PNG)
-### Package Stats
+#### Package Stats
 ![Diagramma classi Stats](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20Stats.PNG)
-### Package OpenWeather
+#### Package OpenWeather
 ![Diagramma classi OpenWeather](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20OpenWeather.PNG)
-### Package Exceptions
+#### Package Exceptions
 ![Diagramma classi Exceptions](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/Diagramma%20classi%20Exceptions.PNG)
-
-
+### Diagramma delle  Sequenze
+#### GET /metadata
+![metadata](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/metadata.PNG)
+#### GET /weather?city="city"
+![seq1](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/seq1.PNG)
+#### GET /weather?city="city"&unit="type"
+![seq2](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/seq2.PNG)
+#### GET /save?city="city"
+![seq3](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/seq3.PNG)
+#### GET /check?city="city"
+![seq4](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/seq4.PNG)
+#### POST /stats?city="city"&period="period"
+![seq5](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/seq5.PNG)
+#### POST /stats?city="city"&period="period"&unit="type"
+![seq6](https://github.com/Marco-Xu/ProgettoJava/blob/master/UML/seq6.PNG)
