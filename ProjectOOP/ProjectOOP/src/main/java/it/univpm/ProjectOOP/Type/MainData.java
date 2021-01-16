@@ -59,7 +59,7 @@ public class MainData implements Serializable{
 		minimalTemp -= 273.15;
 		feelsLikeTemp -=  273.15;
 	}
-	
+
 	public void toFahrenheit() {
 		normalTemp = (normalTemp - 273.15) * 9/5 + 32;
 		maximalTemp = (maximalTemp - 273.15) * 9/5 + 32;
