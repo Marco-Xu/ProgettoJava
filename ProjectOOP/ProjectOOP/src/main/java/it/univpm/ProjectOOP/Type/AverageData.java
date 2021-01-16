@@ -18,16 +18,12 @@ public class AverageData extends MainData implements Serializable {
 
 	public AverageData() {
 	}
-	
+
 	public AverageData(String city, double normalTemp, double maximalTemp, double minimalTemp, double feelsLikeTemp, int n) {
-		this.city = city;
-		this.normalTemp = normalTemp;
-		this.maximalTemp = maximalTemp;
-		this.minimalTemp = minimalTemp;
-		this.feelsLikeTemp = feelsLikeTemp;
+		super(city, normalTemp, maximalTemp, minimalTemp, feelsLikeTemp);
 		this.n = n;
 	}
-	
+
 	public void addData(MyData data) {
 		this.allData.add(data);
 		n++;

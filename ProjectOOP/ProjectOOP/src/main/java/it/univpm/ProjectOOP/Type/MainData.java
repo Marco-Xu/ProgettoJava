@@ -13,6 +13,18 @@ public class MainData implements Serializable{
 	protected double minimalTemp;
 	protected double feelsLikeTemp;
 	
+	public MainData() {
+		
+	}
+	
+	public MainData(String city, double normalTemp, double maximalTemp, double minimalTemp, double feelsLikeTemp) {
+		this.city = city;
+		this.normalTemp = normalTemp;
+		this.maximalTemp = maximalTemp;
+		this.minimalTemp = minimalTemp;
+		this.feelsLikeTemp = feelsLikeTemp;
+	}
+
 	public String getCity() {
 		return city;
 	}
