@@ -14,15 +14,7 @@ public class AverageData extends MainData implements Serializable {
 	protected double varFeelsLikeTemp;
 	protected double maxFeelsLikeTemp;
 	protected double minFeelsLikeTemp;
-	
-	@JsonIgnore
-	protected Vector<Double> allNormalTemp = new Vector<Double>();
-	@JsonIgnore
-	protected Vector<Double> allMaximalTemp = new Vector<Double>();
-	@JsonIgnore
-	protected Vector<Double> allMinimalTemp = new Vector<Double>();
-	@JsonIgnore
-	protected Vector<Double> allFeelsLikeTemp = new Vector<Double>();
+	protected Vector<MyData> allData = new Vector<MyData>();
 
 	public AverageData() {
 	}
@@ -36,28 +28,32 @@ public class AverageData extends MainData implements Serializable {
 		this.n = n;
 	}
 	
-	public void addNormalTemp(double normalTemp) {
-		this.normalTemp += normalTemp;
-		allNormalTemp.add(normalTemp);
+	public void addData(MyData data) {
+		this.allData.add(data);
+		n++;
+	}
+	
+	@JsonIgnore
+	public double getSumNormalTemp() {
+		double sum = 0;
+		for(MyData a : allData)
+			sum += a.getNormalTemp();
+		return sum;
 	}
 
-	public void addMaximalTemp(double maximalTemp) {
-		if(this.maximalTemp < maximalTemp)
-			this.maximalTemp += maximalTemp;
-		allMaximalTemp.add(maximalTemp);
+	public double getMaximalTemp() {
+		return maximalTemp;
 	}
 	
-	public void addMinimalTemp(double minimalTemp) {
-		if(allMinimalTemp.isEmpty())
-			this.minimalTemp = minimalTemp;
-		if(this.minimalTemp > minimalTemp)
-			this.minimalTemp = minimalTemp;
-		allMinimalTemp.add(minimalTemp);
+	public double getMinimalTemp() {
+		return minimalTemp;
 	}
-	
-	public void addFeelsLikeTemp(double feelsLikeTemp) {
-		this.feelsLikeTemp += feelsLikeTemp;
-		allFeelsLikeTemp.add(feelsLikeTemp);
+	@JsonIgnore
+	public double getSumFeelsLikeTemp() {
+		double sum = 0;
+		for(MyData a : allData)
+			sum += a.getFeelsLikeTemp();
+		return sum;
 	}
 	
 	public Double getVarNormalTemp() {
@@ -80,32 +76,51 @@ public class AverageData extends MainData implements Serializable {
 		return n;
 	}
 	
-	public int increaseN() {
-		return n++;
-	}
-	
 	public void calc() {
-		this.normalTemp = getNormalTemp() / n;
-		this.feelsLikeTemp = getFeelsLikeTemp() / n;
+		this.normalTemp = getSumNormalTemp() / n;
+		this.feelsLikeTemp = getSumFeelsLikeTemp() / n;
 		
-		this.varNormalTemp = round(getVar(allNormalTemp, normalTemp));
-		this.varFeelsLikeTemp = round(getVar(allFeelsLikeTemp, feelsLikeTemp));
+		this.varNormalTemp = round(getVarN());
+		this.varFeelsLikeTemp = round(getVarF());
 		
-		minFeelsLikeTemp = this.feelsLikeTemp;
-		for(double a : allFeelsLikeTemp) {
-			if(maxFeelsLikeTemp < a)
-				maxFeelsLikeTemp = a;
-			if(minFeelsLikeTemp > a)
-				minFeelsLikeTemp = a;
+		this.minimalTemp = getNormalTemp();
+		for(MyData a : allData) {
+			if(this.maximalTemp < a.getMaximalTemp())
+				this.maximalTemp = a.getMaximalTemp();
+			if(this.minimalTemp > a.getMinimalTemp())
+				this.minimalTemp = a.getMinimalTemp();
+		}
+			
+		this.minFeelsLikeTemp = this.feelsLikeTemp;
+		for(MyData a : allData) {
+			if(this.maxFeelsLikeTemp < a.getFeelsLikeTemp())
+				this.maxFeelsLikeTemp = a.getFeelsLikeTemp();
+			if(this.minFeelsLikeTemp > a.getFeelsLikeTemp())
+				this.minFeelsLikeTemp = a.getFeelsLikeTemp();
 		}
 		
+		roundNum();
 	}
 	
-	private Double getVar(Vector<Double> all, double average) {
+	private double getVar(Vector<Double> all, double average) {
 		double temp = 0;
 		for(double a : all) 
 			temp += ((a - average) * (a - average));
 		return temp/n;
+	}
+	
+	private double getVarF() {
+		Vector<Double> allFeelsLikeTemp = new Vector<Double>();
+		for(MyData a : allData)
+			allFeelsLikeTemp.add(a.getFeelsLikeTemp());
+		return getVar(allFeelsLikeTemp, this.feelsLikeTemp);
+	}
+	
+	private double getVarN() {
+		Vector<Double> allNormalTemp = new Vector<Double>();
+		for(MyData a : allData)
+			allNormalTemp.add(a.getNormalTemp());
+		return getVar(allNormalTemp, this.normalTemp);
 	}
 
 	@Override

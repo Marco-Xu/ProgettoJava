@@ -72,7 +72,6 @@ public class Controller {
 		   throw new NotIntegerException("Formato di 'period' non valido.");
 		}
 		
-		date *= (60*60*24);
 		AverageData av = Statistics.setValori(city, date);
 		return av;
 	}
@@ -87,7 +86,6 @@ public class Controller {
 		catch (NumberFormatException e) {
 		   throw new NotIntegerException("Formato di 'period' non valido.");
 		}
-		date *= (60*60*24);
 		AverageData av = Statistics.setValori(city, date);
 		
 		if(!av.changeTemp(type))
