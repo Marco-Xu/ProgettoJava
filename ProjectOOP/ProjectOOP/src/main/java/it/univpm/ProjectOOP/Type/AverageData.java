@@ -10,10 +10,10 @@ public class AverageData extends MainData implements Serializable {
 	private static final long serialVersionUID = 1;
 	
 	protected int n;
-	protected Double VarNormalTemp;
-	protected Double VarMaximalTemp;
-	protected Double VarMinimalTemp;
-	protected Double VarFeelsLikeTemp;
+	protected double VarNormalTemp;
+	protected double VarFeelsLikeTemp;
+	protected double MaxFeelsLikeTemp;
+	protected double MinFeelsLikeTemp;
 	
 	@JsonIgnore
 	protected Vector<Double> allNormalTemp = new Vector<Double>();
@@ -42,12 +42,14 @@ public class AverageData extends MainData implements Serializable {
 	}
 
 	public void addMaximalTemp(double maximalTemp) {
-		this.maximalTemp += maximalTemp;
+		if(this.maximalTemp < maximalTemp)
+			this.maximalTemp += maximalTemp;
 		allMaximalTemp.add(maximalTemp);
 	}
 	
 	public void addMinimalTemp(double minimalTemp) {
-		this.minimalTemp += minimalTemp;
+		if(this.minimalTemp > minimalTemp)
+			this.minimalTemp += minimalTemp;
 		allMinimalTemp.add(minimalTemp);
 	}
 	
@@ -59,13 +61,13 @@ public class AverageData extends MainData implements Serializable {
 	public Double getVarNormalTemp() {
 		return VarNormalTemp;
 	}
-
-	public Double getVarMaximalTemp() {
-		return VarMaximalTemp;
+	
+	public double getMaxFeelsLikeTemp() {
+		return MaxFeelsLikeTemp;
 	}
 
-	public Double getVarMinimalTemp() {
-		return VarMinimalTemp;
+	public double getMinFeelsLikeTemp() {
+		return MinFeelsLikeTemp;
 	}
 
 	public Double getVarFeelsLikeTemp() {
@@ -82,14 +84,18 @@ public class AverageData extends MainData implements Serializable {
 	
 	public void calc() {
 		this.normalTemp = getNormalTemp() / n;
-		this.maximalTemp = getMaximalTemp() / n;
-		this.minimalTemp = getMinimalTemp() / n;
 		this.feelsLikeTemp = getFeelsLikeTemp() / n;
 		
 		this.VarNormalTemp = round(getVar(allNormalTemp, normalTemp));
-		this.VarMaximalTemp = round(getVar(allMaximalTemp, maximalTemp));
-		this.VarMinimalTemp = round(getVar(allMinimalTemp, minimalTemp));
 		this.VarFeelsLikeTemp = round(getVar(allFeelsLikeTemp, feelsLikeTemp));
+		
+		for(double a : allFeelsLikeTemp) {
+			if(MaxFeelsLikeTemp < a)
+				MaxFeelsLikeTemp = a;
+			if(MinFeelsLikeTemp > a)
+				MinFeelsLikeTemp = a;
+		}
+		
 	}
 	
 	private Double getVar(Vector<Double> all, double average) {
@@ -101,8 +107,8 @@ public class AverageData extends MainData implements Serializable {
 
 	@Override
 	public String toString() {
-		return "AverageData:" + super.toString() + "\nVarNormalTemp : " + VarNormalTemp + "\nVarMaximalTemp : " + VarMaximalTemp + "\nVarMinimalTemp : "
-				+ VarMinimalTemp + "\nVarFeelsLikeTemp : " + VarFeelsLikeTemp + "\n";
+		return "AverageData:" + super.toString() + "\nVarNormalTemp : " + VarNormalTemp + "\nMaxFeelsLikeTemp : " + MaxFeelsLikeTemp + "\nMinFeelsLikeTemp : "
+				+ MinFeelsLikeTemp + "\nVarFeelsLikeTemp : " + VarFeelsLikeTemp + "\n";
 	}
 	
 	
