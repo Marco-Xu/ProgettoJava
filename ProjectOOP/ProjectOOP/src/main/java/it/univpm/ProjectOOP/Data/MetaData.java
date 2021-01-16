@@ -17,9 +17,9 @@ public class MetaData {
 		metadata.add(new InfData("date", "Data in formato unix", "Int"));
 		metadata.add(new InfData("varNormalTemp", "Varianza temperatura media", "Double"));
 		metadata.add(new InfData("varFeelsLikeTemp", "Varianza temperatura percepita", "Double"));
-		metadata.add(new InfData("maxFeelsLikeTemp", "Temperatura massima registrata", "Double"));
-		metadata.add(new InfData("minFeelsLikeTemp", "Temperatura minima registrata", "Double"));
-		metadata.add(new InfData("n", "Numero elementi nello storico", "Int"));
+		metadata.add(new InfData("maxFeelsLikeTemp", "Temperatura massima percepita", "Double"));
+		metadata.add(new InfData("minFeelsLikeTemp", "Temperatura minima percepita", "Double"));
+		metadata.add(new InfData("n", "Numero elementi nel periodo indicato", "Int"));
 		
 		return metadata;
 	}
