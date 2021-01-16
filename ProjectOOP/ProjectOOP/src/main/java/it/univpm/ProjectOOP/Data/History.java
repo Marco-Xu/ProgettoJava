@@ -23,9 +23,7 @@ public class History {
 		File actualFile = getDir(city);
 
 		md = (DataWeather.parse(city));
-		if(md.getDescription() == "")
-			throw new CityNotFoundException("Città non trovata.");
-
+		
 		data = getData(actualFile);
 		if(checkDate(data, md)) {
 			data.add(md);
@@ -45,7 +43,7 @@ public class History {
 		return data;
 	}
 	
-	private static File getDir(String city) {
+	public static File getDir(String city) {
 		city = checkUpperCase(city);
 		String file = city + ".dat";
 		String dir = (System.getProperty("user.dir"));
@@ -55,7 +53,7 @@ public class History {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private static Vector<MyData> getData(File actualFile){
+	public static Vector<MyData> getData(File actualFile){
 		Vector<MyData> data = new Vector<MyData>();
 		try {
 			ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(actualFile)));
@@ -98,7 +96,7 @@ public class History {
 		return false;
 	}
 	
-	private static String checkUpperCase(String city) {
+	public static String checkUpperCase(String city) {
 		boolean b = false;
 		if(!Character.isUpperCase(city.charAt(0))) {
 			String temp = city;

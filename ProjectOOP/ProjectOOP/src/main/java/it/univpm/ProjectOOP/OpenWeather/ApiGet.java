@@ -1,7 +1,7 @@
 package it.univpm.ProjectOOP.OpenWeather;
 
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -9,10 +9,12 @@ import java.net.URL;
 
 import org.json.JSONObject;
 
+import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
+
 
 
 public class ApiGet {
-	public static JSONObject Read(String city) {
+	public static JSONObject Read(String city) throws CityNotFoundException {
 		
 		String url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=ffb7e697fda1e224fa8c50d16e4b3bca";
 		JSONObject obj = new JSONObject();
@@ -41,8 +43,8 @@ public class ApiGet {
 			
 			obj = new JSONObject(data);
 			
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			throw new CityNotFoundException("Città non trovata.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

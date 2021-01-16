@@ -3,10 +3,11 @@ package it.univpm.ProjectOOP.OpenWeather;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 import it.univpm.ProjectOOP.Type.MyData;
 
 public class DataWeather {
-	public static MyData parse(String city) {
+	public static MyData parse(String city) throws CityNotFoundException {
 		MyData md = new MyData();
 		String description = "";
 		JSONObject object = ApiGet.Read(city);
