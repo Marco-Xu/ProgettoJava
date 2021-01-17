@@ -9,7 +9,7 @@ import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 @Configuration
 @EnableScheduling
 public class SaveAll {
-	@Scheduled(fixedRate = 3600000)
+	@Scheduled(fixedRate = 1000)
 	public static void saveAll() throws CityNotFoundException {
 		History.save("Rimini");
 		History.save("Ancona");
