@@ -32,8 +32,8 @@ Il parametro "type" per la selezione dell'unità di misura accetta i seguenti fo
 * Per i gradi Kelvin: "Kelvin", "kelvin", "K", "k";
 * Per i gradi Fahrenheit: "Fahrenheit", "fahrenheit", "F", "f".
 
-Il parametro "period" accetta solo valori numerici interi per inidicare il periodo di cui si vuole ottenere le statistiche (es. una settimana = 7, 
-un mese = 30, ecc...).
+Il parametro "period" accetta solo valori numerici interi per inidicare il periodo di cui si vuole ottenere le statistiche  
+(es. una settimana = 7, un mese = 30, ecc...).
 
 La nostra raccolta dati è composta dalle seguenti città:
 * Ancona;
