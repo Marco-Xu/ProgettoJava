@@ -79,7 +79,7 @@ public class Controller {
 	 * @return un messaggio in formato String
 	 * @throws CityNotFoundException se la città inserita non esiste
 	 */
-	@RequestMapping(value = "save", method = RequestMethod.GET, params = "city")
+	@RequestMapping(value = "save", method = RequestMethod.POST, params = "city")
 	public String saving(@RequestParam(value = "city") String city) throws CityNotFoundException {
 	
 		if(History.save(city))
@@ -95,7 +95,7 @@ public class Controller {
 	 * @return un Vector di oggetti MyData
 	 * @throws CityNotFoundException se la città inserita non esiste
 	 */
-	@RequestMapping(value = "check", method = RequestMethod.GET, params = "city")
+	@RequestMapping(value = "check", method = RequestMethod.POST, params = "city")
 	public Vector<MyData> check(@RequestParam(value = "city") String city) throws CityNotFoundException {
 		Vector<MyData> data = History.check(city);
 		return data;
