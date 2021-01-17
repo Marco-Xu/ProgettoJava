@@ -4,13 +4,23 @@ import java.util.Vector;
 
 import it.univpm.ProjectOOP.Data.*;
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
-import it.univpm.ProjectOOP.Exceptions.NotIntegerException;
 import it.univpm.ProjectOOP.Type.AverageData;
 import it.univpm.ProjectOOP.Type.MyData;
 
+/**
+ * @author Davide Balducci
+ * @author Marco Xu
+ */
 public class Statistics{
 	
-	public static AverageData setValori(String city, int period) throws CityNotFoundException, NotIntegerException {
+	/**
+	 * Metodo che mostra i dati salvati in base al periodo inserito.
+	 * @param city è la città sul quale applicare la statistica
+	 * @param period sono i giorni delle statistiche da visualizzare
+	 * @return un oggetto di AverageData
+	 * @throws CityNotFoundException se la città inserita non esiste
+	 */
+	public static AverageData setValori(String city, int period) throws CityNotFoundException {
 		
 		Vector<MyData> data = History.check(city);
 		AverageData av = new AverageData();
