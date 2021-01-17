@@ -5,7 +5,7 @@ import java.util.Vector;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class AverageData extends MainData implements Serializable {
+public class AverageData extends MainData implements Serializable, changeUnit {
 	
 	private static final long serialVersionUID = 1;
 	
