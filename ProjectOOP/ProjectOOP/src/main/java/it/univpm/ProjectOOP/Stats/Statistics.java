@@ -18,10 +18,10 @@ public class Statistics{
 		int dateNow = (int)(System.currentTimeMillis()/1000);
 		
 		period *= (60*60*24);
-		period += dateNow;
+		dateNow -= period;
 		for(MyData a : data) {
-			if(a.getDate() <= period) {
-			av.addData(a);
+			if(a.getDate() >= dateNow) {
+				av.addData(a);
 			}
 		}
 		av.calc();
