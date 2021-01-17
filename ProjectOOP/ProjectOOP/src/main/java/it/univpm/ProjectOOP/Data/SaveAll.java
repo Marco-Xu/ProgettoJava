@@ -6,9 +6,19 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 
+/**Rappresenta la classe per il salvataggio automatico dei dati.
+ * 
+ * @author Davide Balducci
+ * @author Marco Xu
+ */
 @Configuration
 @EnableScheduling
 public class SaveAll {
+	
+	/**
+	 * Metodo per il salvataggio automatico dei dati.
+	 * @throws CityNotFoundException se la città inserita è errata
+	 */
 	@Scheduled(fixedRate = 1000)
 	public static void saveAll() throws CityNotFoundException {
 		History.save("Rimini");
