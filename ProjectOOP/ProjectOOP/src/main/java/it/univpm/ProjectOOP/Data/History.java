@@ -8,6 +8,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 import java.util.Vector;
 
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
@@ -172,5 +175,14 @@ public class History {
 	
 	public static int getTime() {
 		return time;
+	}
+	
+	public static String dateConv(int date) {
+		Date mills = new Date(date*1000L); 
+		String pattern = "dd-MM-yyyy";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+1"));
+		String formattedDate = simpleDateFormat.format(mills);
+		return formattedDate;
 	}
 }

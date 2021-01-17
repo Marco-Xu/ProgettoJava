@@ -48,4 +48,9 @@ public class TestHistory {
 		Assertions.assertEquals(History.checkUpperCase("maiuscolo"), word);
 	}
 	
+	@Test
+	void testDateConv() {
+		String date = History.dateConv(1610903522);
+		System.out.println(date);
+	}
 }
