@@ -1,12 +1,21 @@
 package it.univpm.ProjectOOP.Data;
 
 import java.util.Vector;
-
 import it.univpm.ProjectOOP.Type.InfData;
 
+/**Classe utilizzata per la chiamata GET/metadata.
+ * 
+ * @author Marco Xu
+ * @author Davide Balducci
+ */
 public class MetaData {
 	private Vector<InfData> metadata = new Vector<InfData>();
 	
+	
+	/**
+	 * Metodo che popola un vettore di oggetti InfData.
+	 * @return un vettore di oggetti InfData
+	 */
 	public Vector<InfData> getMetadata(){
 		metadata.add(new InfData("city", "Nome della città", "String"));
 		metadata.add(new InfData("description", "Informazioni riguardanti il meteo", "String"));
