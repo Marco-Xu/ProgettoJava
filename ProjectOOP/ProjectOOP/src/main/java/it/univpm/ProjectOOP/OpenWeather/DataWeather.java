@@ -6,6 +6,11 @@ import org.json.JSONObject;
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 import it.univpm.ProjectOOP.Type.MyData;
 
+/**Classe che popola un oggetto di MyData con gli elementi contenuti nell'oggetto JSONObject.
+ * 
+ * @author Davide Balducci
+ * @author Marco Xu
+ */
 public class DataWeather {
 	public static MyData parse(String city) throws CityNotFoundException {
 		MyData md = new MyData();
