@@ -21,8 +21,8 @@ In seguito all'avvenuto successo di questi tre step è possibile utilizzare il s
 | GET  |/metadata|Restituisce gli alias utilizzati.                                |
 | GET  |/weather?city="city"|Restituisce le condizioni meteo della città(city) inserita.|
 | GET  |/weather?city="city"&unit="type"|Restituisce le condizioni meteo della città(city) inserita con l'unità di misura(type) richiesta.|
-| GET  |/save?city="city"|Salva i dati meteo della città(city) inserita nella cartella del progetto [data](https://github.com/Marco-Xu/ProgettoJava/tree/master/ProjectOOP/ProjectOOP/data).|
-| GET  |/check?city="city"|Visualizza a schermo tutti i dati precedentemente salvati della città(city) inserita.|
+| POST  |/save?city="city"|Salva i dati meteo della città(city) inserita nella cartella del progetto [data](https://github.com/Marco-Xu/ProgettoJava/tree/master/ProjectOOP/ProjectOOP/data).|
+| POST  |/check?city="city"|Visualizza a schermo tutti i dati precedentemente salvati della città(city) inserita.|
 | POST |/stats?city="city"&period="period"|Restituisce, se presenti, le statistiche della città(city) inserita con periodicità(period) personalizzabile.|
 | POST |/stats?city="city"&period="period"&unit="type"|Restituisce, se presenti, le statistiche della città(city) inserita con periodicità(period) personalizzabile e con unità di misura(type) richiesta.|
 
