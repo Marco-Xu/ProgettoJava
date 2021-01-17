@@ -9,7 +9,7 @@ Il servizio salva le informazioni ogni ora e dà la possibilità di impostare il
 
 Tale progetto inoltre genera statistiche periodiche riguardanti valori minimi, massimi, media e varianza di temperature reali e percepite con filtraggio di tali statistiche in base alla periodicità su un range personalizzabile (inserendo il numero di giorni richiesti).
 ## Come si usa?
-Tramite l'ambiente di sviluppo [Eclipse](https://www.eclipse.org/downloads/) si possono eseguire le seguenti operazioni:
+Tramite l'ambiente di sviluppo [Eclipse](https://www.eclipse.org/) si possono eseguire le seguenti operazioni:
 1. Clonare la repository da [GitHub](https://github.com/Marco-Xu/ProgettoJava);
 2. Eseguire il codice come SpringBoot application;
 3. Utilizzare un API testing come ad esempio [Postman](https://www.postman.com/).
