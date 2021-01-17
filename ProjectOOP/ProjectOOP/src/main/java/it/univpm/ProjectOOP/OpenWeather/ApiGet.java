@@ -11,9 +11,19 @@ import org.json.JSONObject;
 
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 
-
-
+/**Classe utilizzata per la chiamata all'API di OpenWeather.
+ * 
+ * @author Marco Xu
+ * @author Davide Balducci
+ */
 public class ApiGet {
+	
+	/**
+	 * Metodo che esegue la chiamata all'API e crea un oggetto JSONObject con i dati letti dalla chiamata.
+	 * @param city rappresenta la città da cui prelevare i dati meteo
+	 * @return un oggetto JSONObject
+	 * @throws CityNotFoundException se la città inserita non esiste
+	 */
 	public static JSONObject Read(String city) throws CityNotFoundException {
 		
 		String url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=ffb7e697fda1e224fa8c50d16e4b3bca";
