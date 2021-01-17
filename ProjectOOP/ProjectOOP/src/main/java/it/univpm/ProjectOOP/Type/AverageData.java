@@ -9,11 +9,11 @@ public class AverageData extends MainData implements Serializable {
 	
 	private static final long serialVersionUID = 1;
 	
-	protected int n;
-	protected double varNormalTemp;
-	protected double varFeelsLikeTemp;
 	protected double maxFeelsLikeTemp;
 	protected double minFeelsLikeTemp;
+	protected double varNormalTemp;
+	protected double varFeelsLikeTemp;
+	protected int n;
 	protected Vector<MyData> allData = new Vector<MyData>();
 
 	public AverageData() {
@@ -37,13 +37,6 @@ public class AverageData extends MainData implements Serializable {
 		return sum;
 	}
 
-	public double getMaximalTemp() {
-		return maximalTemp;
-	}
-	
-	public double getMinimalTemp() {
-		return minimalTemp;
-	}
 	@JsonIgnore
 	public double getSumFeelsLikeTemp() {
 		double sum = 0;
@@ -52,16 +45,16 @@ public class AverageData extends MainData implements Serializable {
 		return sum;
 	}
 	
-	public Double getVarNormalTemp() {
-		return varNormalTemp;
-	}
-	
 	public double getMaxFeelsLikeTemp() {
 		return maxFeelsLikeTemp;
 	}
 
 	public double getMinFeelsLikeTemp() {
 		return minFeelsLikeTemp;
+	}
+	
+	public Double getVarNormalTemp() {
+		return varNormalTemp;
 	}
 
 	public Double getVarFeelsLikeTemp() {
@@ -98,6 +91,7 @@ public class AverageData extends MainData implements Serializable {
 		roundNum();
 	}
 	
+	@JsonIgnore
 	private double getVar(Vector<Double> all, double average) {
 		double temp = 0;
 		for(double a : all) 
@@ -105,6 +99,7 @@ public class AverageData extends MainData implements Serializable {
 		return temp/n;
 	}
 	
+	@JsonIgnore
 	private double getVarF() {
 		Vector<Double> allFeelsLikeTemp = new Vector<Double>();
 		for(MyData a : allData)
@@ -112,6 +107,7 @@ public class AverageData extends MainData implements Serializable {
 		return getVar(allFeelsLikeTemp, this.feelsLikeTemp);
 	}
 	
+	@JsonIgnore
 	private double getVarN() {
 		Vector<Double> allNormalTemp = new Vector<Double>();
 		for(MyData a : allData)
