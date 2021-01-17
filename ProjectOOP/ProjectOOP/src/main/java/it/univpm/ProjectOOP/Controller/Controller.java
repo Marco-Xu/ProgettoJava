@@ -74,7 +74,7 @@ public class Controller {
 	
 	
 	/**
-	 * Risponde alla richiesta GET/save?city="city".
+	 * Risponde alla richiesta POST/save?city="city".
 	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
 	 * @return un messaggio in formato String
 	 * @throws CityNotFoundException se la città inserita non esiste
@@ -90,7 +90,7 @@ public class Controller {
 
 	
 	/**
-	 * Risponde alla richiesta GET/check?city="city".
+	 * Risponde alla richiesta POST/check?city="city".
 	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
 	 * @return un Vector di oggetti MyData
 	 * @throws CityNotFoundException se la città inserita non esiste
