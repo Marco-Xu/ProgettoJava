@@ -14,7 +14,7 @@ Tramite l'ambiente di sviluppo [Eclipse](https://www.eclipse.org/eclipseide/) si
 2. Eseguire il codice come SpringBoot application;
 3. Utilizzare un API testing come ad esempio [Postman](https://www.postman.com/).
 
-In seguito all'avvenuto successo di questi tre passi è possibile utilizzare il servizio meteo sulla porta http://localhost:8081.
+In seguito all'avvenuto successo di questi tre step è possibile utilizzare il servizio meteo sulla porta http://localhost:8081.
 ### Richieste
 | Tipo | Rotta |                        Funzione                                   |
 |------|-------|-------------------------------------------------------------------|
