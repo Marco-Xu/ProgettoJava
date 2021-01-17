@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**Sottoclasse di MainData, contiene tutti i dati meteo utilizzati nelle richieste principali.
+ * 
+ * @author Davide Balducci
+ * @author Marco Xu
+ */
 public class MyData extends MainData implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -25,7 +30,6 @@ public class MyData extends MainData implements Serializable{
 		return description;
 	}
 
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -33,7 +37,6 @@ public class MyData extends MainData implements Serializable{
 	public int getDate() {
 		return date;
 	}
-
 
 	public void setDate(int date) {
 		this.date = date;

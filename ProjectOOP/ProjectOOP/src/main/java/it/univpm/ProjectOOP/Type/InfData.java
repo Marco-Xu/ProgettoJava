@@ -1,5 +1,10 @@
 package it.univpm.ProjectOOP.Type;
 
+/**Classe che permette di rappresentare le informazioni riguardanti un parametro delle classi MyData e AveragData.
+ * 
+ * @author Marco Xu
+ * @author Davide Balducci
+ */
 public class InfData {
 	protected String name;
 	protected String description;

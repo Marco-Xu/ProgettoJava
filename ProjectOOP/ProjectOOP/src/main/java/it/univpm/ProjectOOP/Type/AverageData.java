@@ -5,9 +5,14 @@ import java.util.Vector;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class AverageData extends MainData implements Serializable, changeUnit {
+/**Sottoclasse di MainData, contiene tutti i dati relativi alle richieste sulle statistiche.
+ * 
+ * @author Marco Xu
+ * @author Davide Balducci
+ */
+public class AverageData extends MainData implements Serializable {
 	
-	private static final long serialVersionUID = 1;
+	private static final long serialVersionUID = 1L;
 	
 	protected double maxFeelsLikeTemp;
 	protected double minFeelsLikeTemp;
@@ -24,11 +29,19 @@ public class AverageData extends MainData implements Serializable, changeUnit {
 		this.n = n;
 	}
 
+	/**
+	 * Metodo per popolare un vettore di oggetti MyData e incrementare un contatore.
+	 * @param data è un oggetto di MyData
+	 */
 	public void addData(MyData data) {
 		this.allData.add(data);
 		n++;
 	}
 	
+	/**
+	 * Metodo che calcola la somma di tutte le normalTemp.
+	 * @return somma delle temperature medie reali
+	 */
 	@JsonIgnore
 	public double getSumNormalTemp() {
 		double sum = 0;
@@ -37,6 +50,10 @@ public class AverageData extends MainData implements Serializable, changeUnit {
 		return sum;
 	}
 
+	/**
+	 * Metodo che calcola la somma di tutte le feelsLikeTemp.
+	 * @return somma delle temperature medie percepite.
+	 */
 	@JsonIgnore
 	public double getSumFeelsLikeTemp() {
 		double sum = 0;
@@ -65,6 +82,10 @@ public class AverageData extends MainData implements Serializable, changeUnit {
 		return n;
 	}
 	
+	/**
+	 * Metodo che calcola le statistiche (media di temperatura nornale e percepita) in base ai dati caricati nel vettore allData.
+	 * Viene calcolata anche la varianza, temperatura massima e minima dei valori reali e percepiti.
+	 */
 	public void calc() {
 		this.normalTemp = getSumNormalTemp() / n;
 		this.feelsLikeTemp = getSumFeelsLikeTemp() / n;
@@ -91,6 +112,12 @@ public class AverageData extends MainData implements Serializable, changeUnit {
 		roundNum();
 	}
 	
+	/**
+	 * Metodo per il calcolo della varianza generale.
+	 * @param all vettore di oggetti Double, valori di temperatura
+	 * @param average media della temperatura
+	 * @return varianza
+	 */
 	@JsonIgnore
 	private double getVar(Vector<Double> all, double average) {
 		double temp = 0;
@@ -99,6 +126,10 @@ public class AverageData extends MainData implements Serializable, changeUnit {
 		return temp/n;
 	}
 	
+	/**
+	 * Metodo per il calcolo della varianza delle temperature percepite.
+	 * @return varianza feelsLikeTemp
+	 */
 	@JsonIgnore
 	private double getVarF() {
 		Vector<Double> allFeelsLikeTemp = new Vector<Double>();
@@ -107,6 +138,10 @@ public class AverageData extends MainData implements Serializable, changeUnit {
 		return getVar(allFeelsLikeTemp, this.feelsLikeTemp);
 	}
 	
+	/**
+	 * Metodo per il calcolo della varianza delle temperature reali.
+	 * @return varianza normalTemp
+	 */
 	@JsonIgnore
 	private double getVarN() {
 		Vector<Double> allNormalTemp = new Vector<Double>();
@@ -115,6 +150,9 @@ public class AverageData extends MainData implements Serializable, changeUnit {
 		return getVar(allNormalTemp, this.normalTemp);
 	}
 
+	/**
+	 * Metodo che modifica l'unità di misura in gradi Celsius.
+	 */
 	@Override
 	public void toCelsius() {
 		normalTemp -= 273.15;
@@ -125,6 +163,9 @@ public class AverageData extends MainData implements Serializable, changeUnit {
 		feelsLikeTemp -=  273.15;
 	}
 	
+	/**
+	 * Metodo che modifica l'unità di misura in gradi Fahrenheit.
+	 */
 	@Override
 	public void toFahrenheit() {
 		normalTemp = (normalTemp - 273.15) * 9/5 + 32;

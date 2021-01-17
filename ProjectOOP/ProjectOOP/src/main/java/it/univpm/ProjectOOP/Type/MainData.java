@@ -2,11 +2,15 @@ package it.univpm.ProjectOOP.Type;
 
 import java.io.Serializable;
 
-public class MainData implements Serializable{
-	/**
-	 * 
-	 */
+/**Superclasse MainData, contiene i parametri principali per i dati meteo.
+ * 
+ * @author Davide Balducci
+ * @author Marco Xu
+ */
+public class MainData implements Serializable, changeUnit{
+	
 	private static final long serialVersionUID = 1L;
+	
 	protected String city;
 	protected double normalTemp;
 	protected double maximalTemp;
@@ -65,6 +69,10 @@ public class MainData implements Serializable{
 		this.feelsLikeTemp = feelsLikeTemp;
 	}
 
+	
+	/**
+	 * Metodo che modifica l'unità di misura in gradi Celsius.
+	 */
 	public void toCelsius() {
 		normalTemp -= 273.15;
 		maximalTemp -= 273.15;
@@ -72,6 +80,10 @@ public class MainData implements Serializable{
 		feelsLikeTemp -=  273.15;
 	}
 
+	
+	/**
+	 * Metodo che modifica l'unità di misura in gradi Fahrenheit.
+	 */
 	public void toFahrenheit() {
 		normalTemp = (normalTemp - 273.15) * 9/5 + 32;
 		maximalTemp = (maximalTemp - 273.15) * 9/5 + 32;
@@ -79,6 +91,10 @@ public class MainData implements Serializable{
 		feelsLikeTemp = (feelsLikeTemp - 273.15) * 9/5 + 32;
 	}
 	
+	
+	/**
+	 * Metodo per arrotondare i valori ad una cifra decimale.
+	 */
 	public void roundNum() {
 		normalTemp = round(normalTemp);
 		maximalTemp = round(maximalTemp);
@@ -90,6 +106,12 @@ public class MainData implements Serializable{
 		return Math.round(val * 10.0) / 10.0;
 	}
 	
+	
+	/**
+	 * Metodo che permette l'inserimento dell'unità di misura solo in determinati formati.
+	 * @param type stringa inserita nella rotta durante la richiesta
+	 * @return true se l'operazione è avvenuta, false se la stringa inserita non coincide con nessun formato accettabile
+	 */
 	public boolean changeTemp(String type) {
 		switch(type) {
 			case "Celsius":
