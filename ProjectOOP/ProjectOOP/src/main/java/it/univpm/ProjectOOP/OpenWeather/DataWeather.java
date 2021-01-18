@@ -12,6 +12,13 @@ import it.univpm.ProjectOOP.Type.MyData;
  * @author Marco Xu
  */
 public class DataWeather {
+	
+	/**
+	 * Metodo che la conversione da JSON a un oggetto MyData.
+	 * @param city rappresenta la citta della quale otterremo un oggetto MyData
+	 * @return un oggetto MyData
+	 * @throws CityNotFoundException se la città inserita non esiste
+	 */
 	public static MyData parse(String city) throws CityNotFoundException {
 		MyData md = new MyData();
 		String description = "";
