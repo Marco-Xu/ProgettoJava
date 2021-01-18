@@ -67,9 +67,9 @@ public class History {
 	
 	
 	/**
-	 * Metodo che salva i dati nella cartella del progetto.
-	 * @param city ci serve per nominare la cartella
-	 * @return un file con il nome della città inserita
+	 * Metodo che restituisce il percorso del file per la citta indicata.
+	 * @param city ci serve per ottenere il nome del file
+	 * @return il percorso del file con il nome della città
 	 */
 	public static File getDir(String city) {
 		city = checkUpperCase(city);
@@ -173,10 +173,21 @@ public class History {
 		return city;
 	}
 	
+	
+	/**
+	 * Metodo per ottenere il tempo rimanente per la scrittura.
+	 * @return ritorna il tempo rimanente per la prossima scrittura
+	 */
 	public static int getTime() {
 		return time;
 	}
 	
+	
+	/**
+	 * Metodo per convertire una data in formato string "dd-MM-yyyy"
+	 * @param data int da convertire
+	 * @return la stringa della data
+	 */
 	public static String dateConv(int date) {
 		Date mills = new Date(date*1000L); 
 		String pattern = "dd-MM-yyyy";
