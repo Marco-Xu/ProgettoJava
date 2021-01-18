@@ -125,6 +125,15 @@ public class Controller {
 		return ControllerUtils.setUnit(av, type);
 	}
 	
+	
+	/**
+	 * Risponde alla richiesta POST/stats?city="city".
+	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
+	 * @param bodyRequest possibilità di inserire in formato JSON il periodo desiderato
+	 * @return un oggetto di AverageData in formato JSON
+	 * @throws CityNotFoundException se la città inserita non esiste
+	 * @throws DateFormatException se il formato JSON del periodo non è corretto
+	 */
 	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city"})
 	public AverageData statsFilter(@RequestParam(value = "city") String city, @RequestBody(required = false) String bodyRequest) throws DateFormatException, CityNotFoundException {
 		FilterUtils fu = new FilterUtils(bodyRequest);
@@ -132,6 +141,17 @@ public class Controller {
 		return av;
     }
 	
+	
+	/**
+	 * Risponde alla richiesta POST/stats?city="city"&unit="type".
+	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
+	 * @param type rappresenta l'unità di misura da utilizzare
+	 * @param bodyRequest possibilità di inserire in formato JSON il periodo desiderato
+	 * @return un oggetto di AverageData in formato JSON
+	 * @throws CityNotFoundException se la città inserita non esiste
+	 * @throws DateFormatException se il formato JSON del periodo non è corretto
+	 * @throws TemperatureTypeException se l'unità di misura inserita non è accettabile
+	 */
 	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city", "unit"})
 	public AverageData statsFilter(@RequestParam(value = "city") String city, @RequestParam(value = "unit") String type, @RequestBody(required = false) String bodyRequest) throws DateFormatException, CityNotFoundException, TemperatureTypeException {
 		FilterUtils fu = new FilterUtils(bodyRequest);

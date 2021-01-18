@@ -7,8 +7,19 @@ import it.univpm.ProjectOOP.OpenWeather.DataWeather;
 import it.univpm.ProjectOOP.Type.AverageData;
 import it.univpm.ProjectOOP.Type.MyData;
 
+/**Classe utile alla funzionalità della classe Controller.
+ * 
+ * @author Davide Balducci
+ * @author Marco Xu
+ */
 public class ControllerUtils {
 	
+	/**
+	 * Metodo ottiene le informazioni meteo in formato MyData dall'API OpenWeather.
+	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
+	 * @return un oggetto di MyData in formato JSON
+	 * @throws CityNotFoundException se la città inserita non esiste
+	 */
 	public static MyData setCity(String city) throws CityNotFoundException {
 		MyData dw = DataWeather.parse(city);
 		if(dw.getDescription() == "")
@@ -17,6 +28,13 @@ public class ControllerUtils {
 	}
 	
 	
+	/**
+	 * Metodo che imposta l'unità misura per un oggetto MyData.
+	 * @param dw oggetto di MyData in formato JSON
+	 * @param type  rappresenta l'unità di misura da utilizzare
+	 * @return un oggetto di MyData in formato JSON
+	 * @throws TemperatureTypeException se l'unità di misura inserita non è accettabile
+	 */
 	public static MyData setUnit(MyData dw, String type) throws TemperatureTypeException {
 			if(!dw.changeTemp(type))
 				throw new TemperatureTypeException("Unità di misura non valida.");
@@ -24,6 +42,12 @@ public class ControllerUtils {
 	}
 	
 	
+	/**
+	 * Metodo per impostare la periodicità nelle statistiche.
+	 * @param period rappresenta il periodo in cui si vuole visualizzare le statistiche
+	 * @return un valore intero
+	 * @throws NotIntegerException se il formato inserito del periodo non è corretto
+	 */
 	public static int setPeriod(String period) throws NotIntegerException {
 		switch(period) {
 			case "Giornaliero":
@@ -45,6 +69,13 @@ public class ControllerUtils {
 	}
 		
 	
+	/**
+	 * Metodo che imposta l'unità misura per un oggetto AverageData.
+	 * @param av
+	 * @param type
+	 * @return
+	 * @throws TemperatureTypeException
+	 */
 	public static AverageData setUnit(AverageData av, String type) throws TemperatureTypeException {
 		if(!av.changeTemp(type))
 			throw new TemperatureTypeException("Unità di misura non valida.");

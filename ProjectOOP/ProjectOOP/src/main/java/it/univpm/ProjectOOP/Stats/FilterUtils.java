@@ -10,6 +10,11 @@ import org.json.JSONObject;
 import it.univpm.ProjectOOP.Exceptions.DateFormatException;
 import it.univpm.ProjectOOP.Type.PeriodFilter;
 
+/**Rappresenta la classe per il parsing del periodo.
+ * 
+ * @author Marco Xu
+ * @author Davide Balducci
+ */
 public class FilterUtils {
 	private PeriodFilter period;
 	
@@ -20,6 +25,11 @@ public class FilterUtils {
 		this.period = period;
 	}
 
+	/**
+	 * Costruttore tramite il parsing del JSONObject.
+	 * @param body periodo in formato JSON
+	 * @throws DateFormatException se il formato del periodo è errato
+	 */
 	public FilterUtils(String body) throws DateFormatException {
 		try {
 			period = new PeriodFilter();
@@ -38,6 +48,11 @@ public class FilterUtils {
 		this.period = period;
 	}
 	
+	/**
+	 * Metodo per la conversione in formato unix del body passato per argomento.
+	 * @param body periodo in formato JSON
+	 * @throws DateFormatException se il formato del periodo è errato
+	 */
 	private void init(String body) throws DateFormatException {
 		JSONObject obj = new JSONObject(body);
 		String temp = "";
@@ -55,6 +70,13 @@ public class FilterUtils {
 		}
 	}
 	
+	
+	/**
+	 * Metodo per la conversione della data da Stringa ad Intero.
+	 * @param dateString data in formato dd-MM-yyyy
+	 * @return data in formato Intero
+	 * @throws DateFormatException se il formato del periodo è errato
+	 */
 	private int dateConv(String dateString) throws DateFormatException {
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 		

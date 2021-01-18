@@ -1,5 +1,10 @@
 package it.univpm.ProjectOOP.Type;
 
+/**Rappresenta la classe contenente il periodo di inizio e fine del filtraggio.
+ * 
+ * @author Marco Xu
+ * @author Davide Balducci
+ */
 public class PeriodFilter {
 	private int start, end;
 
@@ -26,6 +31,5 @@ public class PeriodFilter {
 	public void setEnd(int end) {
 		this.end = end;
 	}
-	
-	
+
 }

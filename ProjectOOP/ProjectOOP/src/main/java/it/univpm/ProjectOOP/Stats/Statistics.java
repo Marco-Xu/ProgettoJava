@@ -40,6 +40,15 @@ public class Statistics{
 		return av;
 	}
 	
+	
+	/**
+	 * Metodo che mostra le statistiche in base al periodo inserito.
+	 * @param city è la città del quale vogliamo ottenere le statistiche
+	 * @param period è l'intervallo della quale si vogliono ottenere le statistiche
+	 * @return un oggetto di AverageData
+	 * @throws CityNotFoundException se la città inserita non esiste
+	 * @throws DateFormatException se il formato del periodo è errato
+	 */
 	public static AverageData setValori(String city, PeriodFilter period) throws CityNotFoundException, DateFormatException {
 		
 		Vector<MyData> data = History.check(city);
