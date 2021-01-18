@@ -26,14 +26,30 @@ In seguito all'avvenuto successo di questi tre step è possibile utilizzare il s
 | POST |/stats?city="city"&period="period"|Restituisce, se presenti, le statistiche della città(city) inserita con periodicità(period) personalizzabile.|
 | POST |/stats?city="city"&period="period"&unit="type"|Restituisce, se presenti, le statistiche della città(city) inserita con periodicità(period) personalizzabile e con unità di misura(type) richiesta.|
 
-### Note
-Il parametro "type" per la selezione dell'unità di misura accetta i seguenti formati:
-* Per i gradi Celsius: "Celsius", "celsius", "C", "c";
-* Per i gradi Kelvin: "Kelvin", "kelvin", "K", "k";
-* Per i gradi Fahrenheit: "Fahrenheit", "fahrenheit", "F", "f".
 
-Il parametro "period" accetta solo valori numerici interi per inidicare il periodo di cui si vuole ottenere le statistiche  
-(es. una settimana = 7, un mese = 30, ecc...).
+### Filtri
+Dalle seguenti richieste:
+| Tipo | Rotta |                        Funzione                                   |
+|------|-------|-------------------------------------------------------------------|
+| POST |/stats?city="city"|Restituisce, se presenti, le statistiche della città(city) inserita.|
+| POST |/stats?city="city"&unit="type"|Restituisce, se presenti, le statistiche della città(city) inserita con unità di misura(type) richiesta.|
+
+Tramite un bodyRequest è possibile inserire in formato JSON il periodo desiderato per la visualizzazione delle statistiche in un **determinato intervallo di tempo**, il body richiesto deve rispettare la seguente struttura:
+
+`{ "startDate" : "dd-MM-yyyy", "endDate" : "dd-MM-yyyy" }`.
+
+### Note
+Il parametro `type` per la selezione dell'unità di misura accetta i seguenti formati:
+* Per i gradi **Celsius**: "Celsius", "celsius", "C", "c";
+* Per i gradi **Kelvin**: "Kelvin", "kelvin", "K", "k";
+* Per i gradi **Fahrenheit**: "Fahrenheit", "fahrenheit", "F", "f".
+
+Il parametro `period` accetta valori di tipo stringa come:
+* "Giornaliero", restituendo le statistiche di 1 giorno addietro;
+* "Settimanale", restituendo le statistiche di 7 giorni addietro;
+* "Mensile", restituendo le statistiche di 30 giorni addietro.
+
+Oppure volendo scegliere una periodicità personalizzata è possibile inserire un valore numerico **intero**.
 
 La nostra raccolta dati è composta dalle seguenti città:
 * Ancona;
