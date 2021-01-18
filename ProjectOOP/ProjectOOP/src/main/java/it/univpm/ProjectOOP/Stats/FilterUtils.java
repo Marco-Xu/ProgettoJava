@@ -54,18 +54,15 @@ public class FilterUtils {
 	 * @throws DateFormatException se il formato del periodo è errato
 	 */
 	private void init(String body) throws DateFormatException {
-		JSONObject obj = new JSONObject(body);
 		String temp = "";
 		try {
+			JSONObject obj = new JSONObject(body);
 			temp = obj.getString("startDate");
 			period.setStart(dateConv(temp));
 			temp = obj.getString("endDate");
 			period.setEnd(dateConv(temp));
 		}
-		catch (NullPointerException e){
-			throw new DateFormatException("Formato della data errata");
-		}
-		catch (JSONException e) {
+		catch (NullPointerException | JSONException e){
 			throw new DateFormatException("Formato della data errata");
 		}
 	}
