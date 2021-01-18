@@ -28,7 +28,7 @@ public class Controller {
 	
 	/**
 	 * Risponde alla richiesta GET /metadata.
-	 * @return Vector di oggetti InfData
+	 * @return Vector di oggetti InfData in formato JSON
 	 */
 	@RequestMapping(value = "metadata", method = RequestMethod.GET)
 	public Vector<InfData> getDataWeather() {
@@ -39,7 +39,7 @@ public class Controller {
 	/**
 	 * Risponde alla richiesta GET/weather?city="city".
 	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
-	 * @return un oggetto di MyData
+	 * @return un oggetto di MyData in formato JSON
 	 * @throws CityNotFoundException se la città inserita non esiste
 	 */
 	@RequestMapping(value = "weather", method = RequestMethod.GET, params = "city")
@@ -55,7 +55,7 @@ public class Controller {
 	 * Risponde alla richiesta GET/weather?city="city"&unit="type". 
 	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
 	 * @param type rappresenta l'unità di misura da utilizzare
-	 * @return un oggetto di MyData
+	 * @return un oggetto di MyData in formato JSON
 	 * @throws TemperatureTypeException se l'unità di misura inserita non è accettabile
 	 * @throws CityNotFoundException se la città inserita non esiste
 	 */
@@ -76,7 +76,7 @@ public class Controller {
 	/**
 	 * Risponde alla richiesta POST/save?city="city".
 	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
-	 * @return un messaggio in formato String
+	 * @return un messaggio in formato String 
 	 * @throws CityNotFoundException se la città inserita non esiste
 	 */
 	@RequestMapping(value = "save", method = RequestMethod.POST, params = "city")
@@ -92,7 +92,7 @@ public class Controller {
 	/**
 	 * Risponde alla richiesta POST/check?city="city".
 	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
-	 * @return un Vector di oggetti MyData
+	 * @return un Vector di oggetti MyData in formato JSON
 	 * @throws CityNotFoundException se la città inserita non esiste
 	 */
 	@RequestMapping(value = "check", method = RequestMethod.POST, params = "city")
@@ -106,7 +106,7 @@ public class Controller {
 	 * Risponde alla richiesta POST/stats?city="city"&period="period".
 	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
 	 * @param period rappresenta il periodo in cui si vuole visualizzare le statistiche
-	 * @return un oggetto di AverageData
+	 * @return un oggetto di AverageData in formato JSON
 	 * @throws CityNotFoundException se la città inserita non esiste
 	 * @throws NotIntegerException se il formato inserito del periodo non è corretto
 	 */
@@ -130,7 +130,7 @@ public class Controller {
 	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
 	 * @param period rappresenta il periodo in cui si vuole visualizzare le statistiche
 	 * @param type rappresenta l'unità di misura da utilizzare
-	 * @return
+	 * @return un oggetto di AverageData in formato JSON
 	 * @throws CityNotFoundException se la città inserita non esiste
 	 * @throws NotIntegerException se il formato inserito del periodo non è corretto
 	 * @throws TemperatureTypeException se l'unità di misura inserita non è accettabile
