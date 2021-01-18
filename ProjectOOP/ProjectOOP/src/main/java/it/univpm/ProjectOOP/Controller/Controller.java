@@ -126,9 +126,16 @@ public class Controller {
 	}
 	
 	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city"})
-	public AverageData statsFilter(@RequestParam(value = "city") String city,@RequestBody(required = false) String bodyRequest) throws DateFormatException, CityNotFoundException {
+	public AverageData statsFilter(@RequestParam(value = "city") String city, @RequestBody(required = false) String bodyRequest) throws DateFormatException, CityNotFoundException {
 		FilterUtils fu = new FilterUtils(bodyRequest);
 		AverageData av = Statistics.setValori(city, fu.getPeriod());
 		return av;
+    }
+	
+	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city", "unit"})
+	public AverageData statsFilter(@RequestParam(value = "city") String city, @RequestParam(value = "unit") String type, @RequestBody(required = false) String bodyRequest) throws DateFormatException, CityNotFoundException, TemperatureTypeException {
+		FilterUtils fu = new FilterUtils(bodyRequest);
+		AverageData av = Statistics.setValori(city, fu.getPeriod());
+		return ControllerUtils.setUnit(av, type);
     }
 }
