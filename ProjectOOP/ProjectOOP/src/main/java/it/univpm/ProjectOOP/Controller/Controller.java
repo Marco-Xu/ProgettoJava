@@ -11,7 +11,6 @@ import it.univpm.ProjectOOP.Data.*;
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
 import it.univpm.ProjectOOP.Exceptions.NotIntegerException;
 import it.univpm.ProjectOOP.Exceptions.TemperatureTypeException;
-import it.univpm.ProjectOOP.OpenWeather.DataWeather;
 import it.univpm.ProjectOOP.Stats.Statistics;
 import it.univpm.ProjectOOP.Type.AverageData;
 import it.univpm.ProjectOOP.Type.InfData;
@@ -44,10 +43,7 @@ public class Controller {
 	 */
 	@RequestMapping(value = "weather", method = RequestMethod.GET, params = "city")
 	public MyData getDataWeather(@RequestParam(value = "city") String city) throws CityNotFoundException{
-		MyData dw = DataWeather.parse(city);
-		if(dw.getDescription() == "")
-			throw new CityNotFoundException("Città non trovata.");
-		return dw;
+		return ControllerUtils.setCity(city);
 	}
 	
 	
@@ -61,15 +57,8 @@ public class Controller {
 	 */
 	@RequestMapping(value = "weather", method = RequestMethod.GET, params = {"city", "unit"})
 	public MyData getDataWeather(@RequestParam(value = "city") String city, @RequestParam(value = "unit") String type) throws TemperatureTypeException, CityNotFoundException {
-		MyData dw = DataWeather.parse(city);
-		
-		if(dw.getDescription() == "")
-			throw new CityNotFoundException("Città non trovata.");
-		
-		if(!dw.changeTemp(type))
-			throw new TemperatureTypeException("Unità di misura non valida.");
-		
-		return dw;
+		MyData dw = ControllerUtils.setCity(city);
+		return ControllerUtils.setUnit(dw, type);
 	}
 	
 	
@@ -81,10 +70,8 @@ public class Controller {
 	 */
 	@RequestMapping(value = "save", method = RequestMethod.POST, params = "city")
 	public String saving(@RequestParam(value = "city") String city) throws CityNotFoundException {
-	
 		if(History.save(city))
 			return "Dati salvati.";
-			
 		return "Tempo trascorso dall'ultimo slavataggio insufficiente.\nMancano : " + History.getTime() + " minuti";
 	}
 
@@ -112,14 +99,7 @@ public class Controller {
 	 */
 	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city", "period"})
 	public AverageData stats(@RequestParam(value = "city") String city, @RequestParam(value = "period") String period) throws CityNotFoundException, NotIntegerException {
-		int date;
-		try {
-		   date = Integer.parseInt(period);
-		}
-		catch (NumberFormatException e) {
-		   throw new NotIntegerException("Formato di 'period' non valido.");
-		}
-		
+		int date = ControllerUtils.setPeriod(period);
 		AverageData av = Statistics.setValori(city, date);
 		return av;
 	}
@@ -137,18 +117,8 @@ public class Controller {
 	 */
 	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city", "period", "unit"})
 	public AverageData stats(@RequestParam(value = "city") String city, @RequestParam(value = "period") String period, @RequestParam(value = "unit") String type) throws CityNotFoundException, NotIntegerException, TemperatureTypeException {
-		int date;
-		try {
-		   date = Integer.parseInt(period);
-		}
-		catch (NumberFormatException e) {
-		   throw new NotIntegerException("Formato di 'period' non valido.");
-		}
+		int date = ControllerUtils.setPeriod(period);
 		AverageData av = Statistics.setValori(city, date);
-		
-		if(!av.changeTemp(type))
-			throw new TemperatureTypeException("Unità di misura non valida.");
-		
-		return av;
+		return ControllerUtils.setUnit(av, type);
 	}
 }
