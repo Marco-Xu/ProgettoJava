@@ -2,6 +2,7 @@ package it.univpm.ProjectOOP.Controller;
 
 import java.util.Vector;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,8 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import it.univpm.ProjectOOP.Data.*;
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
+import it.univpm.ProjectOOP.Exceptions.DateFormatException;
 import it.univpm.ProjectOOP.Exceptions.NotIntegerException;
 import it.univpm.ProjectOOP.Exceptions.TemperatureTypeException;
+import it.univpm.ProjectOOP.Stats.FilterUtils;
 import it.univpm.ProjectOOP.Stats.Statistics;
 import it.univpm.ProjectOOP.Type.AverageData;
 import it.univpm.ProjectOOP.Type.InfData;
@@ -121,4 +124,11 @@ public class Controller {
 		AverageData av = Statistics.setValori(city, date);
 		return ControllerUtils.setUnit(av, type);
 	}
+	
+	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city"})
+	public AverageData statsFilter(@RequestParam(value = "city") String city,@RequestBody(required = false) String bodyRequest) throws DateFormatException, CityNotFoundException {
+		FilterUtils fu = new FilterUtils(bodyRequest);
+		AverageData av = Statistics.setValori(city, fu.getPeriod());
+		return av;
+    }
 }

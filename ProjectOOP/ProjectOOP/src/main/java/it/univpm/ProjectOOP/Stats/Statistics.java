@@ -4,8 +4,10 @@ import java.util.Vector;
 
 import it.univpm.ProjectOOP.Data.*;
 import it.univpm.ProjectOOP.Exceptions.CityNotFoundException;
+import it.univpm.ProjectOOP.Exceptions.DateFormatException;
 import it.univpm.ProjectOOP.Type.AverageData;
 import it.univpm.ProjectOOP.Type.MyData;
+import it.univpm.ProjectOOP.Type.PeriodFilter;
 
 /**
  * @author Davide Balducci
@@ -31,6 +33,24 @@ public class Statistics{
 		dateNow -= period;
 		for(MyData a : data) {
 			if(a.getDate() >= dateNow) {
+				av.addData(a);
+			}
+		}
+		av.calc();
+		return av;
+	}
+	
+	public static AverageData setValori(String city, PeriodFilter period) throws CityNotFoundException, DateFormatException {
+		
+		Vector<MyData> data = History.check(city);
+		AverageData av = new AverageData();
+		av.setCity(city);
+		
+		if(period.getEnd() < period.getStart())
+			throw new DateFormatException("Data iniziale maggiore della data finale");
+		
+		for(MyData a : data) {
+			if(a.getDate() <= period.getEnd() && a.getDate() >= period.getStart()) {
 				av.addData(a);
 			}
 		}
