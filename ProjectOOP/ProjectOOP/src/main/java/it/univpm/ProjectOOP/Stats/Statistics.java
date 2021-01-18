@@ -14,8 +14,8 @@ import it.univpm.ProjectOOP.Type.MyData;
 public class Statistics{
 	
 	/**
-	 * Metodo che mostra i dati salvati in base al periodo inserito.
-	 * @param city è la città sul quale applicare la statistica
+	 * Metodo che mostra le statistiche in base al periodo inserito.
+	 * @param city è la città del quale vogliamo ottenere le statistiche
 	 * @param period sono i giorni delle statistiche da visualizzare
 	 * @return un oggetto di AverageData
 	 * @throws CityNotFoundException se la città inserita non esiste
