@@ -27,10 +27,10 @@ public class History {
 	
 	
 	/**
-	 * Metodo che salva i dati meteo della città inserita.
-	 * @param city rappresenta la città di cui salvare i dati
-	 * @return true se salva i dati nel file, false se non è ancora passata un'ora dall'ultimo salvataggio
-	 * @throws CityNotFoundException se la città passata come parametro è errata
+	 * Metodo che salva i dati meteo della citta&#768; inserita.
+	 * @param city rappresenta la citta&#768; di cui salvare i dati
+	 * @return true se salva i dati nel file, false se non e&#768; ancora passata un'ora dall'ultimo salvataggio
+	 * @throws CityNotFoundException se la citta&#768; passata come parametro e&#768; errata
 	 */
 	public static boolean save(String city) throws CityNotFoundException {
 		Vector<MyData> data = new Vector<MyData>();
@@ -51,10 +51,10 @@ public class History {
 	
 	
 	/**
-	 * Metodo che controlla la presenza dei dati della città inserita.
-	 * @param city rappresenta la città da controllare
+	 * Metodo che controlla la presenza dei dati della citta&#768; inserita.
+	 * @param city rappresenta la citta&#768; da controllare
 	 * @return un vettore di oggetti MyData con i dati salvati fino a quel momento
-	 * @throws CityNotFoundException se la città passata come parametro è errata
+	 * @throws CityNotFoundException se la citta&#768; passata come parametro e&#768; errata
 	 */
 	public static Vector<MyData> check(String city) throws CityNotFoundException {
 		File actualFile = getDir(city);
@@ -69,7 +69,7 @@ public class History {
 	/**
 	 * Metodo che restituisce il percorso del file per la citta indicata.
 	 * @param city ci serve per ottenere il nome del file
-	 * @return il percorso del file con il nome della città
+	 * @return il percorso del file con il nome della citta&#768;
 	 */
 	public static File getDir(String city) {
 		city = checkUpperCase(city);
@@ -131,7 +131,7 @@ public class History {
 	 * Metodo che controlla il tempo rimanente per il prossimo salvataggio.
 	 * @param data vettore di oggetti MyData
 	 * @param md oggetto di MyData
-	 * @return true se è passata più di un'ora dall'ultimo salvataggio, false se non è ancora passata un'ora dall'ultimo salvataggio
+	 * @return true se e&#768; passata più di un'ora dall'ultimo salvataggio, false se non e&#768; ancora passata un'ora dall'ultimo salvataggio
 	 */
 	public static boolean checkDate(Vector<MyData> data, MyData md) {
 		int maxTime = 0;
@@ -146,8 +146,8 @@ public class History {
 	
 	
 	/**
-	 * Metodo che imposta la lettera maiuscola a tutte le città passategli come parametro.
-	 * @param city rappresenta città da modificare
+	 * Metodo che imposta la lettera maiuscola a tutte le citta&#768; passategli come parametro.
+	 * @param city rappresenta citta&#768; da modificare
 	 * @return la stringa city con l'iniziale maiuscola
 	 */
 	public static String checkUpperCase(String city) {
@@ -185,7 +185,7 @@ public class History {
 	
 	/**
 	 * Metodo per convertire una data in formato string "dd-MM-yyyy"
-	 * @param data int da convertire
+	 * @param date int da convertire
 	 * @return la stringa della data
 	 */
 	public static String dateConv(int date) {

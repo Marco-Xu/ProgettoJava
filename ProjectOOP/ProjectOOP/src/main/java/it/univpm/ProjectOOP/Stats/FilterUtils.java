@@ -28,7 +28,7 @@ public class FilterUtils {
 	/**
 	 * Costruttore tramite il parsing del JSONObject.
 	 * @param body periodo in formato JSON
-	 * @throws DateFormatException se il formato del periodo è errato
+	 * @throws DateFormatException se il formato del periodo e&#768; errato
 	 */
 	public FilterUtils(String body) throws DateFormatException {
 		try {
@@ -51,7 +51,7 @@ public class FilterUtils {
 	/**
 	 * Metodo per la conversione in formato unix del body passato per argomento.
 	 * @param body periodo in formato JSON
-	 * @throws DateFormatException se il formato del periodo è errato
+	 * @throws DateFormatException se il formato del periodo e&#768; errato
 	 */
 	private void init(String body) throws DateFormatException {
 		String temp = "";
@@ -72,7 +72,7 @@ public class FilterUtils {
 	 * Metodo per la conversione della data da Stringa ad Intero.
 	 * @param dateString data in formato dd-MM-yyyy
 	 * @return data in formato Intero
-	 * @throws DateFormatException se il formato del periodo è errato
+	 * @throws DateFormatException se il formato del periodo e&#768; errato
 	 */
 	private int dateConv(String dateString) throws DateFormatException {
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");

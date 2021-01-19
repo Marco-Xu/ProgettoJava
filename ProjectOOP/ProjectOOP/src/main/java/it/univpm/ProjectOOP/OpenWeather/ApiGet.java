@@ -20,9 +20,9 @@ public class ApiGet {
 	
 	/**
 	 * Metodo che esegue la chiamata all'API e crea un oggetto JSONObject con i dati letti dalla chiamata.
-	 * @param city rappresenta la città da cui prelevare i dati meteo
+	 * @param city rappresenta la citta&#768; da cui prelevare i dati meteo
 	 * @return un oggetto JSONObject
-	 * @throws CityNotFoundException se la città inserita non esiste
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
 	 */
 	public static JSONObject Read(String city) throws CityNotFoundException {
 		

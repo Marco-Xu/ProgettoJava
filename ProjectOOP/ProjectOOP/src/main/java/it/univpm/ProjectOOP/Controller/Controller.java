@@ -40,9 +40,9 @@ public class Controller {
 	
 	/**
 	 * Risponde alla richiesta GET/weather?city="city".
-	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
+	 * @param city rappresenta la citta&#768; sul quale si vuole ottenere i dati meteo
 	 * @return un oggetto di MyData in formato JSON
-	 * @throws CityNotFoundException se la città inserita non esiste
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
 	 */
 	@RequestMapping(value = "weather", method = RequestMethod.GET, params = "city")
 	public MyData getDataWeather(@RequestParam(value = "city") String city) throws CityNotFoundException{
@@ -51,12 +51,12 @@ public class Controller {
 	
 	
 	/**
-	 * Risponde alla richiesta GET/weather?city="city"&unit="type". 
-	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
-	 * @param type rappresenta l'unità di misura da utilizzare
+	 * Risponde alla richiesta GET/weather?city="city"&amp;unit="type". 
+	 * @param city rappresenta la citta&#768; sul quale si vuole ottenere i dati meteo
+	 * @param type rappresenta l'unita&#768; di misura da utilizzare
 	 * @return un oggetto di MyData in formato JSON
-	 * @throws TemperatureTypeException se l'unità di misura inserita non è accettabile
-	 * @throws CityNotFoundException se la città inserita non esiste
+	 * @throws TemperatureTypeException se l'unita&#768; di misura inserita non e&#768; accettabile
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
 	 */
 	@RequestMapping(value = "weather", method = RequestMethod.GET, params = {"city", "unit"})
 	public MyData getDataWeather(@RequestParam(value = "city") String city, @RequestParam(value = "unit") String type) throws TemperatureTypeException, CityNotFoundException {
@@ -67,9 +67,9 @@ public class Controller {
 	
 	/**
 	 * Risponde alla richiesta POST/save?city="city".
-	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
+	 * @param city rappresenta la citta&#768; sul quale si vuole ottenere i dati meteo
 	 * @return un messaggio in formato String 
-	 * @throws CityNotFoundException se la città inserita non esiste
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
 	 */
 	@RequestMapping(value = "save", method = RequestMethod.POST, params = "city")
 	public String saving(@RequestParam(value = "city") String city) throws CityNotFoundException {
@@ -81,9 +81,9 @@ public class Controller {
 	
 	/**
 	 * Risponde alla richiesta POST/check?city="city".
-	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
+	 * @param city rappresenta la citta&#768; sul quale si vuole ottenere i dati meteo
 	 * @return un Vector di oggetti MyData in formato JSON
-	 * @throws CityNotFoundException se la città inserita non esiste
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
 	 */
 	@RequestMapping(value = "check", method = RequestMethod.POST, params = "city")
 	public Vector<MyData> check(@RequestParam(value = "city") String city) throws CityNotFoundException {
@@ -93,12 +93,12 @@ public class Controller {
 	
 	
 	/**
-	 * Risponde alla richiesta POST/stats?city="city"&period="period".
-	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
+	 * Risponde alla richiesta POST/stats?city="city"&amp;period="period".
+	 * @param city rappresenta la citta&#768; sul quale si vuole ottenere i dati meteo
 	 * @param period rappresenta il periodo in cui si vuole visualizzare le statistiche
 	 * @return un oggetto di AverageData in formato JSON
-	 * @throws CityNotFoundException se la città inserita non esiste
-	 * @throws NotIntegerException se il formato inserito del periodo non è corretto
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
+	 * @throws NotIntegerException se il formato inserito del periodo non e&#768; corretto
 	 */
 	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city", "period"})
 	public AverageData stats(@RequestParam(value = "city") String city, @RequestParam(value = "period") String period) throws CityNotFoundException, NotIntegerException {
@@ -109,14 +109,14 @@ public class Controller {
 	
 	
 	/**
-	 * Risponde alla richiesta POST/stats?city="city"&period="period"&unit="type".
-	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
+	 * Risponde alla richiesta POST/stats?city="city"&amp;period="period"&amp;unit="type".
+	 * @param city rappresenta la citta&#768; sul quale si vuole ottenere i dati meteo
 	 * @param period rappresenta il periodo in cui si vuole visualizzare le statistiche
-	 * @param type rappresenta l'unità di misura da utilizzare
+	 * @param type rappresenta l'unita&#768; di misura da utilizzare
 	 * @return un oggetto di AverageData in formato JSON
-	 * @throws CityNotFoundException se la città inserita non esiste
-	 * @throws NotIntegerException se il formato inserito del periodo non è corretto
-	 * @throws TemperatureTypeException se l'unità di misura inserita non è accettabile
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
+	 * @throws NotIntegerException se il formato inserito del periodo non e&#768; corretto
+	 * @throws TemperatureTypeException se l'unita&#768; di misura inserita non e&#768; accettabile
 	 */
 	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city", "period", "unit"})
 	public AverageData stats(@RequestParam(value = "city") String city, @RequestParam(value = "period") String period, @RequestParam(value = "unit") String type) throws CityNotFoundException, NotIntegerException, TemperatureTypeException {
@@ -128,11 +128,11 @@ public class Controller {
 	
 	/**
 	 * Risponde alla richiesta POST/stats?city="city".
-	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
-	 * @param bodyRequest possibilità di inserire in formato JSON il periodo desiderato
+	 * @param city rappresenta la citta&#768; sul quale si vuole ottenere i dati meteo
+	 * @param bodyRequest possibilita&#768; di inserire in formato JSON il periodo desiderato
 	 * @return un oggetto di AverageData in formato JSON
-	 * @throws CityNotFoundException se la città inserita non esiste
-	 * @throws DateFormatException se il formato JSON del periodo non è corretto
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
+	 * @throws DateFormatException se il formato JSON del periodo non e&#768; corretto
 	 */
 	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city"})
 	public AverageData statsFilter(@RequestParam(value = "city") String city, @RequestBody(required = false) String bodyRequest) throws DateFormatException, CityNotFoundException {
@@ -143,14 +143,14 @@ public class Controller {
 	
 	
 	/**
-	 * Risponde alla richiesta POST/stats?city="city"&unit="type".
-	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
-	 * @param type rappresenta l'unità di misura da utilizzare
-	 * @param bodyRequest possibilità di inserire in formato JSON il periodo desiderato
+	 * Risponde alla richiesta POST/stats?city="city"&amp;unit="type".
+	 * @param city rappresenta la citta&#768; sul quale si vuole ottenere i dati meteo
+	 * @param type rappresenta l'unita&#768; di misura da utilizzare
+	 * @param bodyRequest possibilita&#768; di inserire in formato JSON il periodo desiderato
 	 * @return un oggetto di AverageData in formato JSON
-	 * @throws CityNotFoundException se la città inserita non esiste
-	 * @throws DateFormatException se il formato JSON del periodo non è corretto
-	 * @throws TemperatureTypeException se l'unità di misura inserita non è accettabile
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
+	 * @throws DateFormatException se il formato JSON del periodo non e&#768; corretto
+	 * @throws TemperatureTypeException se l'unita&#768; di misura inserita non e&#768; accettabile
 	 */
 	@RequestMapping(value = "stats", method = RequestMethod.POST, params = {"city", "unit"})
 	public AverageData statsFilter(@RequestParam(value = "city") String city, @RequestParam(value = "unit") String type, @RequestBody(required = false) String bodyRequest) throws DateFormatException, CityNotFoundException, TemperatureTypeException {

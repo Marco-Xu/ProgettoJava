@@ -17,7 +17,7 @@ public class SaveAll {
 	
 	/**
 	 * Metodo per il salvataggio automatico dei dati.
-	 * @throws CityNotFoundException se la città inserita è errata
+	 * @throws CityNotFoundException se la citta&#768; inserita e&#768; errata
 	 */
 	@Scheduled(fixedRate = 600000)
 	public static void saveAll() throws CityNotFoundException {

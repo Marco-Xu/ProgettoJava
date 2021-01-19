@@ -9,7 +9,8 @@ import it.univpm.ProjectOOP.Type.AverageData;
 import it.univpm.ProjectOOP.Type.MyData;
 import it.univpm.ProjectOOP.Type.PeriodFilter;
 
-/**
+/**Rapresenta i calcoli principali per le statistiche.
+ * 
  * @author Davide Balducci
  * @author Marco Xu
  */
@@ -17,10 +18,10 @@ public class Statistics{
 	
 	/**
 	 * Metodo che mostra le statistiche in base al periodo inserito.
-	 * @param city è la città del quale vogliamo ottenere le statistiche
+	 * @param city e&#768; la citta&#768; del quale vogliamo ottenere le statistiche
 	 * @param period sono i giorni delle statistiche da visualizzare
 	 * @return un oggetto di AverageData
-	 * @throws CityNotFoundException se la città inserita non esiste
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
 	 */
 	public static AverageData setValori(String city, int period) throws CityNotFoundException {
 		
@@ -43,11 +44,11 @@ public class Statistics{
 	
 	/**
 	 * Metodo che mostra le statistiche in base al periodo inserito.
-	 * @param city è la città del quale vogliamo ottenere le statistiche
-	 * @param period è l'intervallo della quale si vogliono ottenere le statistiche
+	 * @param city e&#768; la citta&#768; del quale vogliamo ottenere le statistiche
+	 * @param period e&#768; l'intervallo della quale si vogliono ottenere le statistiche
 	 * @return un oggetto di AverageData
-	 * @throws CityNotFoundException se la città inserita non esiste
-	 * @throws DateFormatException se il formato del periodo è errato
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
+	 * @throws DateFormatException se il formato del periodo e&#768; errato
 	 */
 	public static AverageData setValori(String city, PeriodFilter period) throws CityNotFoundException, DateFormatException {
 		

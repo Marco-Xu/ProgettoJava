@@ -7,7 +7,7 @@ import it.univpm.ProjectOOP.OpenWeather.DataWeather;
 import it.univpm.ProjectOOP.Type.AverageData;
 import it.univpm.ProjectOOP.Type.MyData;
 
-/**Classe utile alla funzionalità della classe Controller.
+/**Classe utile alla funzionalita&#768; della classe Controller.
  * 
  * @author Davide Balducci
  * @author Marco Xu
@@ -16,9 +16,9 @@ public class ControllerUtils {
 	
 	/**
 	 * Metodo ottiene le informazioni meteo in formato MyData dall'API OpenWeather.
-	 * @param city rappresenta la città sul quale si vuole ottenere i dati meteo
+	 * @param city rappresenta la citta&#768; sul quale si vuole ottenere i dati meteo
 	 * @return un oggetto di MyData in formato JSON
-	 * @throws CityNotFoundException se la città inserita non esiste
+	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
 	 */
 	public static MyData setCity(String city) throws CityNotFoundException {
 		MyData dw = DataWeather.parse(city);
@@ -29,11 +29,11 @@ public class ControllerUtils {
 	
 	
 	/**
-	 * Metodo che imposta l'unità misura per un oggetto MyData.
+	 * Metodo che imposta l'unita&#768; misura per un oggetto MyData.
 	 * @param dw oggetto di MyData in formato JSON
-	 * @param type  rappresenta l'unità di misura da utilizzare
+	 * @param type  rappresenta l'unita&#768; di misura da utilizzare
 	 * @return un oggetto di MyData in formato JSON
-	 * @throws TemperatureTypeException se l'unità di misura inserita non è accettabile
+	 * @throws TemperatureTypeException se l'unita&#768; di misura inserita non e&#768; accettabile
 	 */
 	public static MyData setUnit(MyData dw, String type) throws TemperatureTypeException {
 			if(!dw.changeTemp(type))
@@ -43,10 +43,10 @@ public class ControllerUtils {
 	
 	
 	/**
-	 * Metodo per impostare la periodicità nelle statistiche.
+	 * Metodo per impostare la periodicita&#768; nelle statistiche.
 	 * @param period rappresenta il periodo in cui si vuole visualizzare le statistiche
 	 * @return un valore intero
-	 * @throws NotIntegerException se il formato inserito del periodo non è corretto
+	 * @throws NotIntegerException se il formato inserito del periodo non e&#768; corretto
 	 */
 	public static int setPeriod(String period) throws NotIntegerException {
 		switch(period) {
@@ -70,7 +70,7 @@ public class ControllerUtils {
 		
 	
 	/**
-	 * Metodo che imposta l'unità misura per un oggetto AverageData.
+	 * Metodo che imposta l'unita&#768; misura per un oggetto AverageData.
 	 * @param av
 	 * @param type
 	 * @return

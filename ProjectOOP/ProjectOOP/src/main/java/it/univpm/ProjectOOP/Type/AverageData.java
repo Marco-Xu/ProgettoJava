@@ -31,7 +31,7 @@ public class AverageData extends MainData implements Serializable {
 
 	/**
 	 * Metodo per popolare un vettore di oggetti MyData e incrementare un contatore.
-	 * @param data è un oggetto di MyData
+	 * @param data e&#768; un oggetto di MyData
 	 */
 	public void addData(MyData data) {
 		this.allData.add(data);
@@ -151,7 +151,7 @@ public class AverageData extends MainData implements Serializable {
 	}
 
 	/**
-	 * Metodo che modifica l'unità di misura in gradi Celsius.
+	 * Metodo che modifica l'unita&#768; di misura in gradi Celsius.
 	 */
 	@Override
 	public void toCelsius() {
@@ -164,7 +164,7 @@ public class AverageData extends MainData implements Serializable {
 	}
 	
 	/**
-	 * Metodo che modifica l'unità di misura in gradi Fahrenheit.
+	 * Metodo che modifica l'unita&#768; di misura in gradi Fahrenheit.
 	 */
 	@Override
 	public void toFahrenheit() {

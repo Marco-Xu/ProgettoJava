@@ -71,7 +71,7 @@ public class MainData implements Serializable, changeUnit{
 
 	
 	/**
-	 * Metodo che modifica l'unità di misura in gradi Celsius.
+	 * Metodo che modifica l'unita&#768; di misura in gradi Celsius.
 	 */
 	public void toCelsius() {
 		normalTemp -= 273.15;
@@ -82,7 +82,7 @@ public class MainData implements Serializable, changeUnit{
 
 	
 	/**
-	 * Metodo che modifica l'unità di misura in gradi Fahrenheit.
+	 * Metodo che modifica l'unita&#768; di misura in gradi Fahrenheit.
 	 */
 	public void toFahrenheit() {
 		normalTemp = (normalTemp - 273.15) * 9/5 + 32;
@@ -108,9 +108,9 @@ public class MainData implements Serializable, changeUnit{
 	
 	
 	/**
-	 * Metodo che permette l'inserimento dell'unità di misura solo in determinati formati.
+	 * Metodo che permette l'inserimento dell'unita&#768; di misura solo in determinati formati.
 	 * @param type stringa inserita nella rotta durante la richiesta
-	 * @return true se l'operazione è avvenuta, false se la stringa inserita non coincide con nessun formato accettabile
+	 * @return true se l'operazione e&#768; avvenuta, false se la stringa inserita non coincide con nessun formato accettabile
 	 */
 	public boolean changeTemp(String type) {
 		switch(type) {

@@ -1,6 +1,6 @@
 package it.univpm.ProjectOOP.Type;
 
-/**Interfaccia per la conversione unità di misura.
+/**Interfaccia per la conversione unita&#768; di misura.
  * 
  * @author Marco Xu
  * @author Davide Balducci
