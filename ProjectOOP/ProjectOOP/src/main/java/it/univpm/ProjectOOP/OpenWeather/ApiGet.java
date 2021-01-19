@@ -34,8 +34,6 @@ public class ApiGet {
 			HttpURLConnection openConnection = (HttpURLConnection) new URL(url).openConnection();
 			openConnection.setRequestMethod("POST");
 			
-			openConnection.setDoOutput(true);
-			
 			InputStream in = openConnection.getInputStream();
 		
 			String data = "";

@@ -83,7 +83,7 @@ public class AverageData extends MainData implements Serializable {
 	}
 	
 	/**
-	 * Metodo che calcola le statistiche (media di temperatura nornale e percepita) in base ai dati caricati nel vettore allData.
+	 * Metodo che calcola le statistiche (media di temperatura normale e percepita) in base ai dati caricati nel vettore allData.
 	 * Viene calcolata anche la varianza, temperatura massima e minima dei valori reali e percepiti.
 	 */
 	public void calc() {

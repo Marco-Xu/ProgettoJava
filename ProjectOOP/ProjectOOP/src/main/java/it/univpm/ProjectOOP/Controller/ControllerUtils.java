@@ -15,7 +15,7 @@ import it.univpm.ProjectOOP.Type.MyData;
 public class ControllerUtils {
 	
 	/**
-	 * Metodo ottiene le informazioni meteo in formato MyData dall'API OpenWeather.
+	 * Metodo che ottiene le informazioni meteo dall'API OpenWeather.
 	 * @param city rappresenta la citta&#768; sul quale si vuole ottenere i dati meteo
 	 * @return un oggetto di MyData in formato JSON
 	 * @throws CityNotFoundException se la citta&#768; inserita non esiste
@@ -31,7 +31,7 @@ public class ControllerUtils {
 	/**
 	 * Metodo che imposta l'unita&#768; misura per un oggetto MyData.
 	 * @param dw oggetto di MyData in formato JSON
-	 * @param type  rappresenta l'unita&#768; di misura da utilizzare
+	 * @param type rappresenta l'unita&#768; di misura da utilizzare
 	 * @return un oggetto di MyData in formato JSON
 	 * @throws TemperatureTypeException se l'unita&#768; di misura inserita non e&#768; accettabile
 	 */
@@ -71,10 +71,10 @@ public class ControllerUtils {
 	
 	/**
 	 * Metodo che imposta l'unita&#768; misura per un oggetto AverageData.
-	 * @param av
-	 * @param type
-	 * @return
-	 * @throws TemperatureTypeException
+	 * @param av oggetto di AverageData in formato JSON
+	 * @param type rappresenta l'unita&#768; di misura da utilizzare
+	 * @return un oggetto di AverageData in formato JSON
+	 * @throws TemperatureTypeException se l'unita&#768; di misura inserita non e&#768; accettabile
 	 */
 	public static AverageData setUnit(AverageData av, String type) throws TemperatureTypeException {
 		if(!av.changeTemp(type))

@@ -67,7 +67,7 @@ public class History {
 	
 	
 	/**
-	 * Metodo che restituisce il percorso del file per la citta indicata.
+	 * Metodo che restituisce il percorso del file per la citta&#768; indicata.
 	 * @param city ci serve per ottenere il nome del file
 	 * @return il percorso del file con il nome della citta&#768;
 	 */
