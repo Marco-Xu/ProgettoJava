@@ -19,7 +19,7 @@ public class SaveAll {
 	 * Metodo per il salvataggio automatico dei dati.
 	 * @throws CityNotFoundException se la città inserita è errata
 	 */
-	@Scheduled(fixedRate = 1000)
+	@Scheduled(fixedRate = 600000)
 	public static void saveAll() throws CityNotFoundException {
 		History.save("Rimini");
 		History.save("Ancona");
