@@ -62,7 +62,7 @@ public class FilterUtils {
 			temp = obj.getString("endDate");
 			period.setEnd(dateConv(temp));
 		}
-		catch (NullPointerException | JSONException e){
+		catch (JSONException e){
 			throw new DateFormatException("Formato della data errata");
 		}
 	}

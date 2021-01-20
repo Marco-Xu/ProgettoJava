@@ -24,10 +24,16 @@ public class AverageData extends MainData implements Serializable {
 	public AverageData() {
 	}
 
-	public AverageData(String city, double normalTemp, double maximalTemp, double minimalTemp, double feelsLikeTemp, int n) {
+	public AverageData(String city, double normalTemp, double maximalTemp, double minimalTemp, double feelsLikeTemp, double maxFeelsLikeTemp, double minFeelsLikeTemp, double varNormalTemp, double varFeelsLikeTemp, int n, Vector<MyData> allData) {
 		super(city, normalTemp, maximalTemp, minimalTemp, feelsLikeTemp);
+		this.maxFeelsLikeTemp = maxFeelsLikeTemp;
+		this.minFeelsLikeTemp = minFeelsLikeTemp;
+		this.varNormalTemp = varNormalTemp;
+		this.varFeelsLikeTemp = varFeelsLikeTemp;
 		this.n = n;
+		this.allData = allData;
 	}
+	
 
 	/**
 	 * Metodo per popolare un vettore di oggetti MyData e incrementare un contatore.
