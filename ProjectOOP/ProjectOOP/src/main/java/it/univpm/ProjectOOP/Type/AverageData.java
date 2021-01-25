@@ -22,6 +22,7 @@ public class AverageData extends MainData implements Serializable {
 	protected Vector<MyData> allData = new Vector<MyData>();
 
 	public AverageData() {
+		super();
 	}
 
 	public AverageData(String city, double normalTemp, double maximalTemp, double minimalTemp, double feelsLikeTemp, double maxFeelsLikeTemp, double minFeelsLikeTemp, double varNormalTemp, double varFeelsLikeTemp, int n, Vector<MyData> allData) {

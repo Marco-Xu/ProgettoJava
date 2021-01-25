@@ -31,10 +31,10 @@ public class ApiGet {
 		
 		try {
 
-			HttpURLConnection openConnection = (HttpURLConnection) new URL(url).openConnection();
-			openConnection.setRequestMethod("POST");
+			HttpURLConnection openConnection = (HttpURLConnection) new URL(url).openConnection();	//creo una nuova richiesta di tipo http con URLConnection;
+			openConnection.setRequestMethod("POST");												//dopo aver passato l'URL dobbiamo impostare il metodo;
 			
-			InputStream in = openConnection.getInputStream();
+			InputStream in = openConnection.getInputStream();	//dopo la richiesta ricevo l'input stream che di conseguenza corrisponde alla risposta da parte del server;
 		
 			String data = "";
 			String line = "";

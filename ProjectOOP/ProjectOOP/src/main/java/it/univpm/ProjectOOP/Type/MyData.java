@@ -18,6 +18,7 @@ public class MyData extends MainData implements Serializable{
 
 
 	public MyData() {
+		super();
 	}
 	
 	public MyData(String city, String description, double normalTemp, double maximalTemp, double minimalTemp, double feelsLikeTemp, int date) {

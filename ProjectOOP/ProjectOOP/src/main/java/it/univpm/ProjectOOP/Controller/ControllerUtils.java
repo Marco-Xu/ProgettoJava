@@ -29,7 +29,7 @@ public class ControllerUtils {
 	
 	
 	/**
-	 * Metodo che imposta l'unita&#768; misura per un oggetto MyData.
+	 * Metodo che imposta l'unita&#768; di misura per un oggetto MyData.
 	 * @param dw oggetto di MyData in formato JSON
 	 * @param type rappresenta l'unita&#768; di misura da utilizzare
 	 * @return un oggetto di MyData in formato JSON

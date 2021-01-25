@@ -75,7 +75,7 @@ public class Controller {
 	public String saving(@RequestParam(value = "city") String city) throws CityNotFoundException {
 		if(History.save(city))
 			return "Dati salvati.";
-		return "Tempo trascorso dall'ultimo slavataggio insufficiente.\nMancano : " + History.getTime() + " minuti";
+		return "Tempo trascorso dall'ultimo salvataggio insufficiente.\nMancano : " + History.getTime() + " minuti.";
 	}
 
 	
